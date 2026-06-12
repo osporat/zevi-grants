@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chabad of Innisfil — Grant Scout</title>
+<style>
+  :root {
+    --green: #1a7a4a;
+    --green-bg: #e6f4ec;
+    --red: #c0392b;
+    --red-bg: #fdecea;
+    --yellow: #b7860b;
+    --yellow-bg: #fef9e7;
+    --blue: #1a5276;
+    --blue-bg: #eaf0f9;
+    --gray: #555;
+    --border: #ddd;
+    --font: 'Segoe UI', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font); background: #f5f7fa; color: #222; }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #003087 0%, #1a5276 100%);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  header .brand { display: flex; align-items: center; gap: 14px; }
+  header .logo { font-size: 2rem; }
+  header h1 { font-size: 1.4rem; font-weight: 700; }
+  header p.subtitle { font-size: 0.85rem; opacity: 0.85; margin-top: 2px; }
+  .last-updated { font-size: 0.8rem; opacity: 0.75; text-align: right; }
+
+  /* UPDATE BUTTON */
+  .update-bar {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-update {
+    background: #003087;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+  }
+  .btn-update:hover { background: #004ab3; }
+  .btn-update:disabled { background: #999; cursor: default; }
+  #update-status { font-size: 0.88rem; color: var(--gray); }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 18px;
+    margin-left: auto;
+    flex-wrap: wrap;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--gray); }
+  .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .dot-green { background: var(--green); }
+  .dot-red { background: var(--red); }
+  .dot-gray { background: #aaa; }
+
+  /* SECTION HEADERS */
+  .section-header {
+    background: #f0f4f8;
+    border-bottom: 2px solid var(--border);
+    padding: 10px 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* GRANTS TABLE */
+  .table-wrap { overflow-x: auto; padding: 0 0 4px; }
+  table { width: 100%; border-collapse: collapse; min-width: 900px; }
+  thead th {
+    background: #003087;
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+  }
+  thead th:hover { background: #004ab3; }
+  thead th .sort-arrow { margin-left: 4px; opacity: 0.6; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  tbody tr:hover { background: #f8fafc !important; }
+  tbody td { padding: 10px 12px; font-size: 0.88rem; vertical-align: top; }
+
+  /* ROW COLOURS */
+  tr.row-new { background: var(--green-bg); }
+  tr.row-urgent { background: var(--red-bg); }
+  tr.row-normal { background: white; }
+  tr.row-closed { background: #f9f9f9; opacity: 0.7; }
+
+  /* PILLS */
+  .pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .pill-open { background: #d4edda; color: #155724; }
+  .pill-upcoming { background: #d1ecf1; color: #0c5460; }
+  .pill-watch { background: #fff3cd; color: #856404; }
+  .pill-relationship { background: #e2d9f3; color: #4a2c6b; }
+  .pill-closed { background: #e2e3e5; color: #383d41; }
+
+  .pill-not-started { background: #e2e3e5; color: #383d41; }
+  .pill-applied { background: #cce5ff; color: #004085; }
+  .pill-awarded { background: #d4edda; color: #155724; }
+  .pill-declined { background: #f8d7da; color: #721c24; }
+
+  /* STATUS DROPDOWN */
+  .status-select {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 0.78rem;
+    background: white;
+    cursor: pointer;
+  }
+
+  /* AMOUNT */
+  .amount { font-weight: 600; color: var(--green); white-space: nowrap; }
+  .deadline { white-space: nowrap; }
+  .deadline.urgent { color: var(--red); font-weight: 700; }
+  .deadline.soon { color: var(--yellow); font-weight: 600; }
+
+  .funder-name { font-weight: 600; }
+  .program-name { font-size: 0.8rem; color: var(--gray); margin-top: 2px; }
+  .grant-link { font-size: 0.75rem; color: #003087; text-decoration: none; }
+  .grant-link:hover { text-decoration: underline; }
+
+  /* PROMPT CARDS */
+  .prompts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 16px;
+    padding: 20px 30px;
+  }
+  .prompt-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .prompt-card h3 { font-size: 0.95rem; font-weight: 700; color: #003087; }
+  .prompt-card .prompt-meta { font-size: 0.78rem; color: var(--gray); display: flex; gap: 12px; flex-wrap: wrap; }
+  .prompt-card .prompt-text {
+    background: #f5f7fa;
+    border: 1px solid #e0e5ec;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #333;
+    max-height: 140px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+  }
+  .card-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .btn-copy {
+    background: #003087;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+  }
+  .btn-copy:hover { background: #004ab3; }
+  .btn-copy.copied { background: var(--green); }
+  .btn-official {
+    font-size: 0.78rem; color: #003087; text-decoration: none;
+    border: 1px solid #003087; border-radius: 6px; padding: 7px 12px;
+    transition: all 0.2s;
+  }
+  .btn-official:hover { background: #003087; color: white; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.78rem;
+    color: #aaa;
+    border-top: 1px solid var(--border);
+    margin-top: 10px;
+  }
+
+  /* UPDATE MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+  .modal h2 { font-size: 1.1rem; margin-bottom: 10px; color: #003087; }
+  .modal p { font-size: 0.88rem; color: #444; line-height: 1.6; }
+  .modal .btn-close {
+    margin-top: 18px;
+    background: #003087;
+    color: white;
+    border: none;
+    padding: 9px 22px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    header, .update-bar, .section-header { padding-left: 15px; padding-right: 15px; }
+    .prompts-grid { padding: 15px; grid-template-columns: 1fr; }
+    .legend { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="brand">
+    <div class="logo">✡️</div>
+    <div>
+      <h1>Chabad of Innisfil — Grant Scout</h1>
+      <p class="subtitle">Open the page, read the table, copy a prompt when ready to apply.</p>
+    </div>
+  </div>
+  <div class="last-updated">
+    Last updated<br><strong id="last-updated-time">Loading...</strong>
+  </div>
+</header>
+
+<!-- UPDATE BAR -->
+<div class="update-bar">
+  <button class="btn-update" onclick="showUpdateModal()">
+    🔄 Update Now
+  </button>
+  <span id="update-status">Your grant scout runs every morning automatically.</span>
+  <div class="legend">
+    <div class="legend-item"><span class="dot dot-green"></span> New this scan</div>
+    <div class="legend-item"><span class="dot dot-red"></span> Closing ≤ 45 days</div>
+    <div class="legend-item"><span class="dot dot-gray"></span> Normal</div>
+  </div>
+</div>
+
+<!-- GRANTS TABLE SECTION -->
+<div class="section-header">📋 Grant Opportunities</div>
+<div class="table-wrap">
+  <table id="grants-table">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)">Funder / Program <span class="sort-arrow">⇅</span></th>
+        <th onclick="sortTable(1)">Category <span class="sort-arrow">⇅</span></th>
+        <th onclick="sortTable(2)">Amount <span class="sort-arrow">⇅</span></th>
+        <th onclick="sortTable(3)">Deadline <span class="sort-arrow">⇅</span></th>
+        <th onclick="sortTable(4)">Status <span class="sort-arrow">⇅</span></th>
+        <th>Application</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody id="grants-body"></tbody>
+  </table>
+</div>
+
+<!-- CHATGPT PROMPTS SECTION -->
+<div class="section-header" style="margin-top:10px;">💬 ChatGPT Application Prompts</div>
+<div class="prompts-grid" id="prompts-grid"></div>
+
+<!-- FOOTER -->
+<footer>
+  Chabad of Innisfil Grant Scout · Amounts are researched estimates — confirm on the funder's official page before applying · Built with Claude
+</footer>
+
+<!-- UPDATE MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <h2>🔄 How to Update Now</h2>
+    <p>Your grant scout runs <strong>automatically every morning</strong> while Claude is open.<br><br>
+    To run it right now, open Claude and type:<br><br>
+    <em style="background:#f0f4f8;padding:6px 10px;border-radius:4px;display:block;margin-top:4px;">"Run the Chabad grant scout and update the dashboard"</em><br>
+    Claude will search for new grants and push the updated page here within a few minutes.</p>
+    <button class="btn-close" onclick="hideUpdateModal()">Got it</button>
+  </div>
+</div>
+
+<script>
+// ─── GRANT DATA ──────────────────────────────────────────────────────────────
+// This block is replaced each morning by the grant scout agent.
+// GRANT_DATA_START
+const GRANTS = [
+  {
+    id: 1,
+    funder: "Public Safety Canada",
+    program: "Security Infrastructure Program (SIP)",
+    category: "Security",
+    amount: "$1,000 – $100,000",
+    amountNum: 50000,
+    deadline: "2025-10-31",
+    status: "OPEN",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://www.publicsafety.gc.ca/cnt/cntrng-crm/crm-prvntn/fndng-prgrms/scrt-nfrstrctr/index-en.aspx",
+    notes: "Covers security cameras, lighting, fencing for religious buildings. Chabad qualifies as a faith-based institution.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Public Safety Canada Security Infrastructure Program.
+
+GRANT: Security Infrastructure Program (SIP)
+FUNDER: Public Safety Canada
+AMOUNT: Up to $100,000
+DEADLINE: October 31, 2025
+PURPOSE: Security improvements for places of worship and faith-based organizations at risk of hate-motivated crime.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area
+- Registered Canadian charity
+- Provides programming for youth, seniors, families, and the broader community
+- Operates a synagogue / community centre
+
+SECURITY NEEDS TO ADDRESS (customize as applicable):
+- Security cameras and monitoring systems
+- Enhanced lighting around the facility
+- Secure entry systems / door reinforcements
+- Emergency communication systems
+
+Please write a complete grant application including:
+1. Organization description and mandate
+2. Description of the security threat/risk
+3. Proposed security improvements and budget breakdown
+4. Expected outcomes and community impact
+5. Why this investment is critical for the community
+
+Write in a professional, compelling tone appropriate for a federal government grant application.`
+  },
+  {
+    id: 2,
+    funder: "Ontario Trillium Foundation",
+    program: "Seed Grant",
+    category: "Community Programming",
+    amount: "$500 – $19,999",
+    amountNum: 10000,
+    deadline: "2025-09-15",
+    status: "OPEN",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://otf.ca/our-grants/seed-grants",
+    notes: "Ideal for new or growing programs. Good fit for youth or seniors programming. Rolling applications.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for the Ontario Trillium Foundation Seed Grant.
+
+GRANT: Ontario Trillium Foundation — Seed Grant
+FUNDER: Ontario Trillium Foundation (OTF)
+AMOUNT: $500 – $19,999
+DEADLINE: September 15, 2025
+PURPOSE: Supports small and mid-sized nonprofits building community capacity in Ontario.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area
+- Registered Canadian charity
+- Programming: youth education (Hebrew school, holiday events), seniors outreach, community Shabbat dinners, interfaith events
+- Serves Jewish families and the broader Innisfil/Simcoe County community
+
+PROGRAM TO FUND (choose and adapt one):
+Option A: Youth Education & Cultural Programming
+Option B: Seniors Social Inclusion Program
+Option C: Community Resilience & Belonging Initiative
+
+Please write a complete Seed Grant application including:
+1. Executive summary
+2. Organization background and mission
+3. Description of the proposed program
+4. Target population and community need
+5. Activities, timeline, and measurable outcomes
+6. Budget narrative
+7. Sustainability plan
+
+Write in a warm, community-focused tone appropriate for an Ontario government foundation grant.`
+  },
+  {
+    id: 3,
+    funder: "Employment and Social Development Canada",
+    program: "Canada Summer Jobs",
+    category: "Youth Employment",
+    amount: "$15–$17/hr (wage subsidy)",
+    amountNum: 12000,
+    deadline: "2026-01-10",
+    status: "UPCOMING",
+    appStatus: "Not started",
+    isNew: false,
+    url: "https://www.canada.ca/en/employment-social-development/services/funding/canada-summer-jobs.html",
+    notes: "Covers 100% of min. wage for nonprofit employers. Apply in January for summer positions. Plan ahead for summer 2026.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for Canada Summer Jobs funding.
+
+GRANT: Canada Summer Jobs
+FUNDER: Employment and Social Development Canada (ESDC)
+AMOUNT: 100% wage subsidy at minimum wage (Ontario) for students aged 15–30
+DEADLINE: January 10, 2026 (for Summer 2026 positions)
+PURPOSE: Create summer jobs for young Canadians at nonprofit organizations.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil — registered charity, faith-based, Innisfil, Ontario
+- Summer programming includes day camp, youth events, community outreach
+
+POSITIONS TO APPLY FOR (adapt as needed):
+- Youth Program Coordinator (1–2 positions)
+- Community Outreach & Events Assistant (1 position)
+
+Please write a complete Canada Summer Jobs application including:
+1. Organization description and primary activities
+2. Description of each position (duties, learning outcomes)
+3. How positions benefit youth participants
+4. How positions serve the community
+5. Plan for mentorship and skills development
+
+Write clearly and concisely, as required by the federal application portal.`
+  },
+  {
+    id: 4,
+    funder: "Employment and Social Development Canada",
+    program: "New Horizons for Seniors",
+    category: "Seniors",
+    amount: "$1,000 – $25,000",
+    amountNum: 15000,
+    deadline: "2025-11-30",
+    status: "OPEN",
+    appStatus: "Not started",
+    isNew: false,
+    url: "https://www.canada.ca/en/employment-social-development/programs/new-horizons-seniors.html",
+    notes: "Community-based projects that engage seniors. Chabad's seniors programming is a strong fit.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for the New Horizons for Seniors Program.
+
+GRANT: New Horizons for Seniors Program
+FUNDER: Employment and Social Development Canada (ESDC)
+AMOUNT: Up to $25,000
+DEADLINE: November 30, 2025
+PURPOSE: Community-based projects that foster social participation and inclusion of seniors.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil — registered charity serving Jewish and general community in Innisfil/Simcoe County
+- Current seniors programs: weekly Shabbat gatherings, holiday celebrations, friendly visits, Zoom Torah classes
+
+PROGRAM TO FUND:
+Seniors Social Inclusion & Wellbeing Program — expanding programming to reduce isolation among Jewish seniors in Innisfil, including transportation support, regular social events, and digital literacy workshops.
+
+Please write a complete application including:
+1. Organization overview and experience with seniors
+2. Description of the proposed project
+3. Target seniors population and identified need
+4. Activities, schedule, and expected reach
+5. Measurable outcomes
+6. Detailed budget
+7. How the project builds community capacity
+
+Tone: warm, evidence-based, community-focused.`
+  },
+  {
+    id: 5,
+    funder: "Canadian Tire Jumpstart Charities",
+    program: "Community Investment Grant",
+    category: "Youth / Sports & Recreation",
+    amount: "$2,500 – $25,000",
+    amountNum: 10000,
+    deadline: "2026-02-28",
+    status: "UPCOMING",
+    appStatus: "Not started",
+    isNew: false,
+    url: "https://jumpstart.canadiantire.ca/pages/community-investment-grants",
+    notes: "Supports programs removing barriers to sport/play for kids. Youth summer camp or recreational programming qualifies.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for a Canadian Tire Jumpstart Community Investment Grant.
+
+GRANT: Jumpstart Community Investment Grant
+FUNDER: Canadian Tire Jumpstart Charities
+AMOUNT: $2,500 – $25,000
+DEADLINE: February 28, 2026
+PURPOSE: Removes barriers so kids can participate in organized sport and recreation.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil — registered charity, Innisfil, Ontario
+- Provides youth programming including camps, holiday events, sports days
+
+PROGRAM TO FUND:
+Youth Recreation & Camp Access Program — providing subsidized access to Chabad's summer day camp and year-round youth activities for children from low-income families in Innisfil/Barrie area.
+
+Please write a complete grant application including:
+1. Organization background
+2. Description of the program and activities
+3. Barriers being removed (financial, geographic, etc.)
+4. Number of children served and demographics
+5. Budget and how funds will be used
+6. Outcomes: how kids' lives improve
+
+Write in an energetic, child-focused tone.`
+  },
+  {
+    id: 6,
+    funder: "TD Bank / TD Ready Commitment",
+    program: "Community Giving Program",
+    category: "Community Development",
+    amount: "$5,000 – $50,000",
+    amountNum: 20000,
+    deadline: "2026-03-31",
+    status: "WATCH",
+    appStatus: "Not started",
+    isNew: false,
+    url: "https://www.td.com/ca/en/about-td/ready-commitment",
+    notes: "Focus on financial security & connected communities. Applications typically open in Q1. Build relationship with local TD branch first.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for TD Bank's Community Giving Program.
+
+GRANT: TD Ready Commitment — Community Giving
+FUNDER: TD Bank Group
+AMOUNT: Varies, typically $5,000–$50,000
+DEADLINE: March 31, 2026 (approximate — confirm with local TD branch)
+PURPOSE: Supports connected, inclusive, and financially secure communities.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil — registered charity, Innisfil, Ontario
+- Community programs: youth education, seniors inclusion, holiday events, food support, community gatherings
+
+PROGRAM TO FUND (choose most relevant pillar):
+Option A: Financial Literacy & Community Resilience
+Option B: Inclusive Community Connections (reducing isolation)
+
+Please write a letter of inquiry / grant application including:
+1. Organization overview
+2. Alignment with TD Ready Commitment pillars
+3. Description of the proposed program
+4. Community impact and reach
+5. Budget summary
+6. How TD's support will make a measurable difference
+
+Tone: professional, partnership-oriented, data-informed where possible.`
+  },
+  {
+    id: 7,
+    funder: "Heritage Canada / Canadian Heritage",
+    program: "Building Communities Through Arts and Heritage",
+    category: "Cultural / Jewish Heritage",
+    amount: "$10,000 – $200,000",
+    amountNum: 30000,
+    deadline: "2025-12-01",
+    status: "OPEN",
+    appStatus: "Not started",
+    isNew: false,
+    url: "https://www.canada.ca/en/canadian-heritage/services/funding/communities-arts-heritage.html",
+    notes: "Supports local festivals and commemorations celebrating local arts/culture. Jewish heritage events qualify.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for the Canadian Heritage "Building Communities Through Arts and Heritage" program.
+
+GRANT: Building Communities Through Arts and Heritage — Local Festivals and Events
+FUNDER: Canadian Heritage (Government of Canada)
+AMOUNT: $10,000 – $200,000
+DEADLINE: December 1, 2025
+PURPOSE: Supports recurring local festivals/events that celebrate arts, culture, and heritage.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil — registered charity celebrating Jewish heritage, culture, and community in Innisfil, Ontario
+
+EVENT TO FUND:
+Annual Jewish Heritage & Cultural Festival — a public community event celebrating Jewish history, culture, food, and traditions; open to the entire Innisfil/Barrie community; featuring music, art, food, speakers, and educational exhibits.
+
+Please write a complete grant application including:
+1. Organization description
+2. Event description, history, and annual reach
+3. How the event celebrates local arts and heritage
+4. Programming details and budget
+5. Public attendance and community benefit
+6. How the grant builds long-term capacity
+
+Tone: celebratory, culturally rich, community-focused.`
+  }
+];
+// GRANT_DATA_END
+
+// ─── STATUS OPTIONS ───────────────────────────────────────────────────────────
+const APP_STATUS_OPTIONS = ["Not started", "Applied", "Awarded", "Declined"];
+const statusOrder = { "OPEN": 0, "UPCOMING": 1, "WATCH": 2, "RELATIONSHIP": 3, "CLOSED": 4 };
+
+// ─── LOAD SAVED APP STATUSES FROM LOCALSTORAGE ────────────────────────────────
+function getSavedStatuses() {
+  try { return JSON.parse(localStorage.getItem("grantStatuses") || "{}"); } catch(e) { return {}; }
+}
+function saveStatus(id, val) {
+  const s = getSavedStatuses(); s[id] = val;
+  localStorage.setItem("grantStatuses", JSON.stringify(s));
+}
+
+// ─── COLOUR ROW CLASS ─────────────────────────────────────────────────────────
+function rowClass(grant) {
+  if (grant.status === "CLOSED") return "row-closed";
+  const today = new Date();
+  if (grant.deadline) {
+    const dl = new Date(grant.deadline);
+    const days = (dl - today) / 86400000;
+    if (days >= 0 && days <= 45) return "row-urgent";
+  }
+  if (grant.isNew) return "row-new";
+  return "row-normal";
+}
+
+function deadlineClass(deadline) {
+  if (!deadline) return "";
+  const today = new Date();
+  const dl = new Date(deadline);
+  const days = (dl - today) / 86400000;
+  if (days < 0) return "";
+  if (days <= 14) return "urgent";
+  if (days <= 45) return "soon";
+  return "";
+}
+
+function formatDeadline(dl) {
+  if (!dl) return "—";
+  const d = new Date(dl);
+  return d.toLocaleDateString("en-CA", { year:"numeric", month:"short", day:"numeric" });
+}
+
+function statusPill(s) {
+  const map = { OPEN:"pill-open", UPCOMING:"pill-upcoming", WATCH:"pill-watch", RELATIONSHIP:"pill-relationship", CLOSED:"pill-closed" };
+  return `<span class="pill ${map[s]||'pill-closed'}">${s}</span>`;
+}
+function appPill(s) {
+  const map = { "Not started":"pill-not-started", "Applied":"pill-applied", "Awarded":"pill-awarded", "Declined":"pill-declined" };
+  return map[s] || "pill-not-started";
+}
+
+// ─── RENDER TABLE ─────────────────────────────────────────────────────────────
+function renderTable() {
+  const saved = getSavedStatuses();
+  const sorted = [...GRANTS].sort((a, b) => {
+    const so = (statusOrder[a.status]||99) - (statusOrder[b.status]||99);
+    if (so !== 0) return so;
+    if (a.deadline && b.deadline) return new Date(a.deadline) - new Date(b.deadline);
+    return 0;
+  });
+
+  const tbody = document.getElementById("grants-body");
+  tbody.innerHTML = sorted.map(g => {
+    const appStatus = saved[g.id] || g.appStatus;
+    const dlClass = deadlineClass(g.deadline);
+    return `<tr class="${rowClass(g)}" data-id="${g.id}">
+      <td>
+        <div class="funder-name">${g.funder}</div>
+        <div class="program-name">${g.program}</div>
+        <a href="${g.url}" target="_blank" class="grant-link">🔗 Official page</a>
+      </td>
+      <td>${g.category}</td>
+      <td class="amount">${g.amount}</td>
+      <td class="deadline ${dlClass}">${formatDeadline(g.deadline)}</td>
+      <td>${statusPill(g.status)}</td>
+      <td>
+        <select class="status-select ${appPill(appStatus)}" onchange="updateAppStatus(${g.id}, this.value)">
+          ${APP_STATUS_OPTIONS.map(o => `<option value="${o}" ${o===appStatus?"selected":""}>${o}</option>`).join("")}
+        </select>
+      </td>
+      <td style="font-size:0.8rem;color:#555;max-width:220px;">${g.notes}</td>
+    </tr>`;
+  }).join("");
+}
+
+function updateAppStatus(id, val) {
+  saveStatus(id, val);
+  const sel = document.querySelector(`tr[data-id="${id}"] .status-select`);
+  if (sel) {
+    sel.className = `status-select ${appPill(val)}`;
+  }
+}
+
+// ─── RENDER PROMPT CARDS ──────────────────────────────────────────────────────
+function renderPrompts() {
+  const active = GRANTS.filter(g => g.status !== "CLOSED");
+  const grid = document.getElementById("prompts-grid");
+  grid.innerHTML = active.map(g => `
+    <div class="prompt-card">
+      <h3>${g.funder}</h3>
+      <div class="prompt-meta">
+        <span>📌 ${g.program}</span>
+        <span>💰 ${g.amount}</span>
+        <span>📅 ${formatDeadline(g.deadline)}</span>
+      </div>
+      <div class="prompt-text" id="prompt-${g.id}">${escapeHtml(g.chatgptPrompt)}</div>
+      <div class="card-actions">
+        <button class="btn-copy" onclick="copyPrompt(${g.id}, this)">📋 Copy ChatGPT instructions</button>
+        <a class="btn-official" href="${g.url}" target="_blank">🔗 Official page</a>
+      </div>
+    </div>
+  `).join("");
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function copyPrompt(id, btn) {
+  const grant = GRANTS.find(g => g.id === id);
+  if (!grant) return;
+  navigator.clipboard.writeText(grant.chatgptPrompt).then(() => {
+    const orig = btn.innerHTML;
+    btn.innerHTML = "✅ Copied!";
+    btn.classList.add("copied");
+    setTimeout(() => { btn.innerHTML = orig; btn.classList.remove("copied"); }, 2000);
+  });
+}
+
+// ─── SORT TABLE ───────────────────────────────────────────────────────────────
+let sortDir = {};
+function sortTable(col) {
+  sortDir[col] = !sortDir[col];
+  const tbody = document.getElementById("grants-body");
+  const rows = Array.from(tbody.querySelectorAll("tr"));
+  rows.sort((a, b) => {
+    const aT = a.cells[col]?.innerText || "";
+    const bT = b.cells[col]?.innerText || "";
+    return sortDir[col] ? aT.localeCompare(bT) : bT.localeCompare(aT);
+  });
+  rows.forEach(r => tbody.appendChild(r));
+}
+
+// ─── UPDATE MODAL ─────────────────────────────────────────────────────────────
+function showUpdateModal() { document.getElementById("modal-overlay").classList.add("show"); }
+function hideUpdateModal() { document.getElementById("modal-overlay").classList.remove("show"); }
+document.getElementById("modal-overlay").addEventListener("click", function(e) {
+  if (e.target === this) hideUpdateModal();
+});
+
+// ─── LAST UPDATED ─────────────────────────────────────────────────────────────
+// LAST_UPDATED_START
+const LAST_UPDATED = "2026-06-12T00:00:00";
+// LAST_UPDATED_END
+
+function setLastUpdated() {
+  const d = new Date(LAST_UPDATED);
+  document.getElementById("last-updated-time").textContent =
+    d.toLocaleDateString("en-CA", { weekday:"short", year:"numeric", month:"short", day:"numeric" });
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+renderTable();
+renderPrompts();
+setLastUpdated();
+</script>
+</body>
+</html>
