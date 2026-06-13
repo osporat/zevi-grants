@@ -38,33 +38,6 @@
   header p.subtitle { font-size: 0.85rem; opacity: 0.85; margin-top: 2px; }
   .last-updated { font-size: 0.8rem; opacity: 0.75; text-align: right; }
 
-  /* UPDATE BUTTON */
-  .update-bar {
-    background: white;
-    border-bottom: 1px solid var(--border);
-    padding: 12px 30px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .btn-update {
-    background: #003087;
-    color: white;
-    border: none;
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.2s;
-  }
-  .btn-update:hover { background: #004ab3; }
-  .btn-update:disabled { background: #999; cursor: default; }
-  #update-status { font-size: 0.88rem; color: var(--gray); }
 
   /* LEGEND */
   .legend {
@@ -228,41 +201,9 @@
     margin-top: 10px;
   }
 
-  /* UPDATE MODAL */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 100;
-    align-items: center;
-    justify-content: center;
-  }
-  .modal-overlay.show { display: flex; }
-  .modal {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    max-width: 480px;
-    width: 90%;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  }
-  .modal h2 { font-size: 1.1rem; margin-bottom: 10px; color: #003087; }
-  .modal p { font-size: 0.88rem; color: #444; line-height: 1.6; }
-  .modal .btn-close {
-    margin-top: 18px;
-    background: #003087;
-    color: white;
-    border: none;
-    padding: 9px 22px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    font-weight: 600;
-  }
 
   @media (max-width: 600px) {
-    header, .update-bar, .section-header { padding-left: 15px; padding-right: 15px; }
+    header, .section-header { padding-left: 15px; padding-right: 15px; }
     .prompts-grid { padding: 15px; grid-template-columns: 1fr; }
     .legend { display: none; }
   }
@@ -319,17 +260,6 @@
   Chabad of Innisfil Grant Scout · Amounts are researched estimates — confirm on the funder's official page before applying · Built with Claude
 </footer>
 
-<!-- UPDATE MODAL -->
-<div class="modal-overlay" id="modal-overlay">
-  <div class="modal">
-    <h2>🔄 How to Update Now</h2>
-    <p>Your grant scout runs <strong>automatically every morning</strong> while Claude is open.<br><br>
-    To run it right now, open Claude and type:<br><br>
-    <em style="background:#f0f4f8;padding:6px 10px;border-radius:4px;display:block;margin-top:4px;">"Run the Chabad grant scout and update the dashboard"</em><br>
-    Claude will search for new grants and push the updated page here within a few minutes.</p>
-    <button class="btn-close" onclick="hideUpdateModal()">Got it</button>
-  </div>
-</div>
 
 <script>
 // ─── GRANT DATA ──────────────────────────────────────────────────────────────
@@ -344,11 +274,11 @@ const GRANTS = [
     amount: "$1,000 – $100,000",
     amountNum: 50000,
     deadline: "2025-10-31",
-    status: "OPEN",
+    status: "CLOSED",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://www.publicsafety.gc.ca/cnt/cntrng-crm/crm-prvntn/fndng-prgrms/scrt-nfrstrctr/index-en.aspx",
-    notes: "Covers security cameras, lighting, fencing for religious buildings. Chabad qualifies as a faith-based institution.",
+    notes: "Deadline passed. REPLACED by Canada Community Security Program (CCSP) — see Grant #9 to apply now.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Public Safety Canada Security Infrastructure Program.
 
 GRANT: Security Infrastructure Program (SIP)
@@ -383,20 +313,20 @@ Write in a professional, compelling tone appropriate for a federal government gr
     funder: "Ontario Trillium Foundation",
     program: "Seed Grant",
     category: "Community Programming",
-    amount: "$500 – $19,999",
-    amountNum: 10000,
-    deadline: "2025-09-15",
-    status: "OPEN",
+    amount: "$10,000 – $100,000",
+    amountNum: 55000,
+    deadline: "2026-08-19",
+    status: "UPCOMING",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://otf.ca/our-grants/seed-grants",
-    notes: "Ideal for new or growing programs. Good fit for youth or seniors programming. Rolling applications.",
+    notes: "2026-27 window: July 22 – Aug 19, 2026 at 5 PM ET. Amount updated ($10K–$100K). Prepare now — window is only 4 weeks.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for the Ontario Trillium Foundation Seed Grant.
 
 GRANT: Ontario Trillium Foundation — Seed Grant
 FUNDER: Ontario Trillium Foundation (OTF)
-AMOUNT: $500 – $19,999
-DEADLINE: September 15, 2025
+AMOUNT: $10,000 – $100,000
+DEADLINE: August 19, 2026 (window opens July 22, 2026)
 PURPOSE: Supports small and mid-sized nonprofits building community capacity in Ontario.
 
 ABOUT THE ORGANIZATION:
@@ -429,11 +359,11 @@ Write in a warm, community-focused tone appropriate for an Ontario government fo
     amount: "$15–$17/hr (wage subsidy)",
     amountNum: 12000,
     deadline: "2026-01-10",
-    status: "UPCOMING",
+    status: "CLOSED",
     appStatus: "Not started",
     isNew: false,
     url: "https://www.canada.ca/en/employment-social-development/services/funding/canada-summer-jobs.html",
-    notes: "Covers 100% of min. wage for nonprofit employers. Apply in January for summer positions. Plan ahead for summer 2026.",
+    notes: "2026 closed Jan 10. 2027 applications expected Nov–Dec 2026. Start planning summer positions now.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for Canada Summer Jobs funding.
 
 GRANT: Canada Summer Jobs
@@ -464,20 +394,20 @@ Write clearly and concisely, as required by the federal application portal.`
     funder: "Employment and Social Development Canada",
     program: "New Horizons for Seniors",
     category: "Seniors",
-    amount: "$1,000 – $25,000",
-    amountNum: 15000,
-    deadline: "2025-11-30",
-    status: "OPEN",
+    amount: "$1,000 – $50,000",
+    amountNum: 25500,
+    deadline: null,
+    status: "UPCOMING",
     appStatus: "Not started",
     isNew: false,
     url: "https://www.canada.ca/en/employment-social-development/programs/new-horizons-seniors.html",
-    notes: "Community-based projects that engage seniors. Chabad's seniors programming is a strong fit.",
+    notes: "2026-27 intake expected summer 2026 (deadline ~September). Maximum DOUBLED to $50,000. Monitor canada.ca for announcement.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for the New Horizons for Seniors Program.
 
 GRANT: New Horizons for Seniors Program
 FUNDER: Employment and Social Development Canada (ESDC)
-AMOUNT: Up to $25,000
-DEADLINE: November 30, 2025
+AMOUNT: Up to $50,000 (maximum doubled for 2026-27)
+DEADLINE: ~September 2026 (exact date TBD — intake opens summer 2026)
 PURPOSE: Community-based projects that foster social participation and inclusion of seniors.
 
 ABOUT THE ORGANIZATION:
@@ -506,11 +436,11 @@ Tone: warm, evidence-based, community-focused.`
     amount: "$2,500 – $25,000",
     amountNum: 10000,
     deadline: "2026-02-28",
-    status: "UPCOMING",
+    status: "CLOSED",
     appStatus: "Not started",
     isNew: false,
     url: "https://jumpstart.canadiantire.ca/pages/community-investment-grants",
-    notes: "Supports programs removing barriers to sport/play for kids. Youth summer camp or recreational programming qualifies.",
+    notes: "Deadline passed. Check Jumpstart website for 2026-27 cycle.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for a Canadian Tire Jumpstart Community Investment Grant.
 
 GRANT: Jumpstart Community Investment Grant
@@ -544,11 +474,11 @@ Write in an energetic, child-focused tone.`
     amount: "$5,000 – $50,000",
     amountNum: 20000,
     deadline: "2026-03-31",
-    status: "WATCH",
+    status: "CLOSED",
     appStatus: "Not started",
     isNew: false,
     url: "https://www.td.com/ca/en/about-td/ready-commitment",
-    notes: "Focus on financial security & connected communities. Applications typically open in Q1. Build relationship with local TD branch first.",
+    notes: "Deadline passed. Build relationship with local TD branch for future cycles.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for TD Bank's Community Giving Program.
 
 GRANT: TD Ready Commitment — Community Giving
@@ -577,17 +507,17 @@ Tone: professional, partnership-oriented, data-informed where possible.`
   },
   {
     id: 7,
-    funder: "Heritage Canada / Canadian Heritage",
+    funder: "Canadian Heritage",
     program: "Building Communities Through Arts and Heritage",
     category: "Cultural / Jewish Heritage",
     amount: "$10,000 – $200,000",
     amountNum: 30000,
-    deadline: "2025-12-01",
-    status: "OPEN",
+    deadline: null,
+    status: "WATCH",
     appStatus: "Not started",
     isNew: false,
     url: "https://www.canada.ca/en/canadian-heritage/services/funding/communities-arts-heritage.html",
-    notes: "Supports local festivals and commemorations celebrating local arts/culture. Jewish heritage events qualify.",
+    notes: "Legacy Fund: rolling/continuous intake — submit 6–12 months before project start. Community Anniversaries: May 31 annual deadline (next: May 31, 2027).",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for the Canadian Heritage "Building Communities Through Arts and Heritage" program.
 
 GRANT: Building Communities Through Arts and Heritage — Local Festivals and Events
@@ -611,6 +541,101 @@ Please write a complete grant application including:
 6. How the grant builds long-term capacity
 
 Tone: celebratory, culturally rich, community-focused.`
+  },
+  {
+    id: 8,
+    funder: "Ontario Government / Anti-Hate Security & Prevention Program",
+    program: "Security and Prevention Grant - Jewish Summer Camps",
+    category: "Security",
+    amount: "$5,000 – $10,000",
+    amountNum: 7500,
+    deadline: "2026-06-30",
+    status: "OPEN",
+    appStatus: "Not started",
+    isNew: false,
+    url: "https://www.tpon.gov.on.ca/ahspg/",
+    notes: "⚠️ URGENT — deadline June 30, 2026. First come, first served. APPLY IMMEDIATELY.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for the Ontario Anti-Hate Security and Prevention Grant (Jewish Summer Camps Stream).
+
+GRANT: Ontario Anti-Hate Security and Prevention Grant — Jewish Summer Camps Stream
+FUNDER: Ontario Government
+AMOUNT: $5,000 – $10,000 (one-time grant)
+DEADLINE: June 30, 2026 (5:00 PM EDT)
+PURPOSE: Support community-led safety measures for Jewish summer camps and organizations with regular religious/cultural programming.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil — registered Canadian Jewish charity in Ontario
+- Provides regular Jewish religious and cultural programming (services, education, community gatherings)
+
+PROGRAM TO FUND:
+Summer youth programs and regular community gatherings are eligible if they serve as gatherings of religious, spiritual, or cultural significance.
+
+ELIGIBLE USES:
+- Security cameras and monitoring systems
+- Enhanced lighting
+- Security barriers and access control
+- Emergency communication systems
+
+Please write a concise application (or complete the online form) including:
+1. Organization description and registration status
+2. Description of regular programming (emphasize religious/cultural significance)
+3. Proposed security improvements
+4. Budget breakdown
+5. Expected outcomes and community safety benefit
+
+Tone: direct, practical, security-focused. First come, first served — apply immediately.`
+  },
+  {
+    id: 9,
+    funder: "Public Safety Canada",
+    program: "Canada Community Security Program (CCSP)",
+    category: "Security",
+    amount: "Up to $1.5M (70% cost share)",
+    amountNum: 100000,
+    deadline: null,
+    status: "OPEN",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://www.publicsafety.gc.ca/cnt/cntrng-crm/crm-prvntn/fndng-prgrms/cnd-cmmnt-scrt-prgrm/pply-en.aspx",
+    notes: "NEW: Replaces old SIP. Continuous intake — apply anytime, first-come first-served. $10M dedicated Jewish community fund (PM Carney, June 2026). Covers 70% of eligible security costs. $75M added over 5 years.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Canada Community Security Program (CCSP).
+
+GRANT: Canada Community Security Program (CCSP)
+FUNDER: Public Safety Canada
+AMOUNT: Up to 70% of eligible costs (maximum $1.5M per project)
+DEADLINE: Continuous intake — first-come, first-served until annual envelope is exhausted
+PURPOSE: Provides funding for security improvements at community gathering spaces at risk of hate-motivated crime. A dedicated $10M fund for Jewish institutions was announced by PM Carney in June 2026.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area
+- Registered Canadian charity
+- Operates a synagogue/community centre hosting regular services, education, youth programs, and community events
+- Jewish institutions are among the most targeted communities for hate crimes in Canada
+
+SECURITY NEEDS TO ADDRESS (customize as applicable):
+- Security cameras and perimeter monitoring systems
+- Reinforced entry doors and access control systems
+- Enhanced exterior lighting
+- Emergency communication and panic systems
+- Security assessment and staff training
+
+SAMPLE BUDGET (adjust to actual needs):
+- Security cameras and installation: $25,000
+- Access control and door reinforcements: $15,000
+- Exterior lighting upgrades: $8,000
+- Emergency communication system: $7,000
+- Security assessment and training: $5,000
+- Total project: ~$60,000 | CCSP contribution (70%): ~$42,000
+
+Please write a complete CCSP application including:
+1. Organization description and charitable registration details
+2. Current security threats and risks (reference rise in antisemitism in Canada)
+3. Proposed security improvements with justification for each item
+4. Detailed budget breakdown showing 70/30 cost share
+5. Expected outcomes and community safety impact
+6. Organizational capacity to manage the project
+
+Write in a professional, evidence-based tone appropriate for a federal public safety grant. Emphasize the current antisemitism climate and Chabad's role as a community anchor.`
   }
 ];
 // GRANT_DATA_END
@@ -759,16 +784,10 @@ function sortTable(col) {
   rows.forEach(r => tbody.appendChild(r));
 }
 
-// ─── UPDATE MODAL ─────────────────────────────────────────────────────────────
-function showUpdateModal() { document.getElementById("modal-overlay").classList.add("show"); }
-function hideUpdateModal() { document.getElementById("modal-overlay").classList.remove("show"); }
-document.getElementById("modal-overlay").addEventListener("click", function(e) {
-  if (e.target === this) hideUpdateModal();
-});
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-06-12T00:00:00";
+const LAST_UPDATED = "2026-06-13T09:00:00";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
