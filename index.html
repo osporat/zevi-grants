@@ -284,17 +284,11 @@
   </div>
 </header>
 
-<!-- UPDATE BAR -->
-<div class="update-bar">
-  <button class="btn-update" onclick="showUpdateModal()">
-    🔄 Update Now
-  </button>
-  <span id="update-status">Your grant scout runs every morning automatically.</span>
-  <div class="legend">
-    <div class="legend-item"><span class="dot dot-green"></span> New this scan</div>
-    <div class="legend-item"><span class="dot dot-red"></span> Closing ≤ 45 days</div>
-    <div class="legend-item"><span class="dot dot-gray"></span> Normal</div>
-  </div>
+<!-- LEGEND BAR -->
+<div style="background:white;border-bottom:1px solid var(--border);padding:8px 30px;display:flex;gap:18px;flex-wrap:wrap;">
+  <div class="legend-item"><span class="dot dot-green"></span> New this scan</div>
+  <div class="legend-item"><span class="dot dot-red"></span> Closing ≤ 45 days</div>
+  <div class="legend-item"><span class="dot dot-gray"></span> Normal</div>
 </div>
 
 <!-- GRANTS TABLE SECTION -->
