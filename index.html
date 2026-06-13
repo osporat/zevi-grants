@@ -226,10 +226,13 @@
 </header>
 
 <!-- LEGEND BAR -->
-<div style="background:white;border-bottom:1px solid var(--border);padding:8px 30px;display:flex;gap:18px;flex-wrap:wrap;">
+<div style="background:white;border-bottom:1px solid var(--border);padding:8px 30px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;">
   <div class="legend-item"><span class="dot dot-green"></span> New this scan</div>
   <div class="legend-item"><span class="dot dot-red"></span> Closing ≤ 45 days</div>
   <div class="legend-item"><span class="dot dot-gray"></span> Normal</div>
+  <label class="legend-item" style="margin-left:auto;cursor:pointer;gap:6px;user-select:none;">
+    <input type="checkbox" id="hide-closed" onchange="toggleClosed(this)" style="cursor:pointer;"> Hide closed grants
+  </label>
 </div>
 
 <!-- GRANTS TABLE SECTION -->
@@ -277,7 +280,7 @@ const GRANTS = [
     status: "CLOSED",
     appStatus: "Not started",
     isNew: false,
-    url: "https://www.publicsafety.gc.ca/cnt/cntrng-crm/crm-prvntn/fndng-prgrms/scrt-nfrstrctr/index-en.aspx",
+    url: "https://www.publicsafety.gc.ca/cnt/cntrng-crm/crm-prvntn/fndng-prgrms/cnd-cmmnt-scrt-prgrm/index-en.aspx",
     notes: "Deadline passed. REPLACED by Canada Community Security Program (CCSP) — see Grant #9 to apply now.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Public Safety Canada Security Infrastructure Program.
 
@@ -692,15 +695,24 @@ function appPill(s) {
   return map[s] || "pill-not-started";
 }
 
+// ─── HIDE CLOSED TOGGLE ──────────────────────────────────────────────────────
+function toggleClosed(cb) {
+  localStorage.setItem("hideClosed", cb.checked ? "1" : "0");
+  renderTable();
+}
+
 // ─── RENDER TABLE ─────────────────────────────────────────────────────────────
 function renderTable() {
   const saved = getSavedStatuses();
-  const sorted = [...GRANTS].sort((a, b) => {
-    const so = (statusOrder[a.status]||99) - (statusOrder[b.status]||99);
-    if (so !== 0) return so;
-    if (a.deadline && b.deadline) return new Date(a.deadline) - new Date(b.deadline);
-    return 0;
-  });
+  const hideClosed = localStorage.getItem("hideClosed") === "1";
+  const sorted = [...GRANTS]
+    .filter(g => !hideClosed || g.status !== "CLOSED")
+    .sort((a, b) => {
+      const so = (statusOrder[a.status]||99) - (statusOrder[b.status]||99);
+      if (so !== 0) return so;
+      if (a.deadline && b.deadline) return new Date(a.deadline) - new Date(b.deadline);
+      return 0;
+    });
 
   const tbody = document.getElementById("grants-body");
   tbody.innerHTML = sorted.map(g => {
@@ -787,7 +799,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-06-13T09:00:00";
+const LAST_UPDATED = "2026-06-13T13:59:09";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
@@ -797,6 +809,7 @@ function setLastUpdated() {
 }
 
 // ─── INIT ────────────────────────────────────────────────────────────────────
+document.getElementById("hide-closed").checked = localStorage.getItem("hideClosed") === "1";
 renderTable();
 renderPrompts();
 setLastUpdated();
