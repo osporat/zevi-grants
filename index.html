@@ -399,18 +399,18 @@ Write clearly and concisely, as required by the federal application portal.`
     category: "Seniors",
     amount: "$1,000 – $50,000",
     amountNum: 25500,
-    deadline: null,
-    status: "UPCOMING",
+    deadline: "2026-07-14",
+    status: "OPEN",
     appStatus: "Not started",
     isNew: false,
-    url: "https://www.canada.ca/en/employment-social-development/programs/new-horizons-seniors.html",
-    notes: "2026-27 intake expected summer 2026 (deadline ~September). Maximum DOUBLED to $50,000. Monitor canada.ca for announcement.",
+    url: "https://www.canada.ca/en/employment-social-development/services/funding/new-horizons-seniors-community-based.html",
+    notes: "⚠️ NOW OPEN — 2026-27 call launched June 2, 2026; deadline July 14, 2026 at 3 PM EDT (6-week window). Max $50,000 for up to 1-year community projects. APPLY SOON.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for the New Horizons for Seniors Program.
 
 GRANT: New Horizons for Seniors Program
 FUNDER: Employment and Social Development Canada (ESDC)
 AMOUNT: Up to $50,000 (maximum doubled for 2026-27)
-DEADLINE: ~September 2026 (exact date TBD — intake opens summer 2026)
+DEADLINE: July 14, 2026 at 3:00 PM EDT (call for proposals opened June 2, 2026)
 PURPOSE: Community-based projects that foster social participation and inclusion of seniors.
 
 ABOUT THE ORGANIZATION:
@@ -520,7 +520,7 @@ Tone: professional, partnership-oriented, data-informed where possible.`
     appStatus: "Not started",
     isNew: false,
     url: "https://www.canada.ca/en/canadian-heritage/services/funding/communities-arts-heritage.html",
-    notes: "Legacy Fund: rolling/continuous intake — submit 6–12 months before project start. Community Anniversaries: May 31 annual deadline (next: May 31, 2027).",
+    notes: "Local Festivals stream: 3 annual intakes — Jan 31, Apr 30, Oct 15 (next: Oct 15, 2026). Legacy Fund: continuous intake, submit 6–12 months before project. Community Anniversaries: May 31 annual (next: May 31, 2027).",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for the Canadian Heritage "Building Communities Through Arts and Heritage" program.
 
 GRANT: Building Communities Through Arts and Heritage — Local Festivals and Events
@@ -598,7 +598,7 @@ Tone: direct, practical, security-focused. First come, first served — apply im
     deadline: null,
     status: "OPEN",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://www.publicsafety.gc.ca/cnt/cntrng-crm/crm-prvntn/fndng-prgrms/cnd-cmmnt-scrt-prgrm/pply-en.aspx",
     notes: "NEW: Replaces old SIP. Continuous intake — apply anytime, first-come first-served. $10M dedicated Jewish community fund (PM Carney, June 2026). Covers 70% of eligible security costs. $75M added over 5 years.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Canada Community Security Program (CCSP).
@@ -639,6 +639,50 @@ Please write a complete CCSP application including:
 6. Organizational capacity to manage the project
 
 Write in a professional, evidence-based tone appropriate for a federal public safety grant. Emphasize the current antisemitism climate and Chabad's role as a community anchor.`
+  },
+  {
+    id: 10,
+    funder: "Ontario Trillium Foundation",
+    program: "Grow Grant",
+    category: "Community Programming",
+    amount: "$50,000 – $250,000",
+    amountNum: 150000,
+    deadline: "2026-11-04",
+    status: "UPCOMING",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://otf.ca/our-grants/community-investments-grants/grow-grant",
+    notes: "NEW: For scaling a proven program over 1–3 years. 2026 window: Oct 7 – Nov 4, 2026 at 5 PM ET. Larger than Seed Grant — best after a successful pilot. Prepare outcomes data over the summer.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Ontario Trillium Foundation Grow Grant.
+
+GRANT: Ontario Trillium Foundation — Grow Grant
+FUNDER: Ontario Trillium Foundation (OTF)
+AMOUNT: $50,000 – $250,000 (over 1–3 years)
+DEADLINE: November 4, 2026 at 5:00 PM ET (window opens October 7, 2026)
+PURPOSE: Helps organizations scale up a program or initiative that has already demonstrated success and measurable impact.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area
+- Registered Canadian charity
+- Programming: youth education (Hebrew school, holiday events), seniors outreach, community Shabbat dinners, interfaith and cultural events
+- Serves Jewish families and the broader Innisfil/Simcoe County community
+
+PROGRAM TO SCALE (choose and adapt one — must be a program with an existing track record):
+Option A: Seniors Social Inclusion Program — expand reach across Simcoe County
+Option B: Youth Education & Cultural Programming — grow enrollment and add new sites
+Option C: Community Resilience & Belonging Initiative — broaden to more participants
+
+Please write a complete Grow Grant application including:
+1. Executive summary
+2. Organization background and mission
+3. Evidence of the program's past success (participation numbers, outcomes, testimonials)
+4. The scaling plan — what will grow, by how much, and over what timeline
+5. Target population and demonstrated community need
+6. Activities, milestones, and measurable outcomes over the grant term
+7. Multi-year budget narrative
+8. Sustainability plan beyond the grant
+
+Write in a warm, evidence-based, community-focused tone appropriate for an Ontario government foundation grant. Emphasize proven results and readiness to scale.`
   }
 ];
 // GRANT_DATA_END
@@ -799,7 +843,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-06-13T13:59:09";
+const LAST_UPDATED = "2026-06-13T14:05:54";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
