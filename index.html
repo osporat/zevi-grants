@@ -52,6 +52,18 @@
   .dot-red { background: var(--red); }
   .dot-gray { background: #aaa; }
 
+  /* EXPAND BUTTON */
+  .expand-btn { background:none; border:none; cursor:pointer; color:#003087; padding:5px 8px; border-radius:4px; font-size:1.05rem; line-height:1; transition:transform 0.25s, background 0.1s; display:block; margin:auto; }
+  .expand-btn:hover { background:rgba(0,48,135,0.09); }
+  .expand-btn.open { transform:rotate(180deg); }
+
+  /* DETAIL ROW */
+  tr.detail-row > td { padding:0 !important; border-bottom:2px solid #003087; }
+  .detail-panel { background:#eef2f8; padding:14px 24px 16px; display:grid; grid-template-columns:1fr 1fr; gap:20px; font-size:0.84rem; }
+  .detail-block h4 { font-size:0.71rem; text-transform:uppercase; letter-spacing:0.06em; color:#777; margin-bottom:5px; font-weight:700; }
+  .detail-block p { color:#333; line-height:1.6; margin:0; white-space:pre-line; }
+  @media(max-width:700px){ .detail-panel { grid-template-columns:1fr; } }
+
   /* SECTION HEADERS */
   .section-header {
     background: #f0f4f8;
@@ -252,6 +264,7 @@
         <th onclick="sortTable(4)">Status <span class="sort-arrow">⇅</span></th>
         <th>Application</th>
         <th>Notes</th>
+        <th style="width:36px;"></th>
       </tr>
     </thead>
     <tbody id="grants-body"></tbody>
@@ -1000,6 +1013,22 @@ function appPill(s) {
   return map[s] || "pill-not-started";
 }
 
+// ─── EXPAND HELPERS ──────────────────────────────────────────────────────────
+function grantPurpose(g) {
+  return g.chatgptPrompt.match(/PURPOSE: ([^\n]+)/)?.[1]?.trim() || g.notes;
+}
+function grantFit(g) {
+  const m = g.chatgptPrompt.match(/ABOUT THE ORGANIZATION[^\n]*\n([\s\S]+?)(?:\n\n)/);
+  return m?.[1]?.trim() || '';
+}
+function toggleExpand(id) {
+  const row = document.getElementById('detail-' + id);
+  const btn = document.querySelector('tr[data-id="' + id + '"] .expand-btn');
+  const open = row.style.display !== 'none';
+  row.style.display = open ? 'none' : 'table-row';
+  btn.classList.toggle('open', !open);
+}
+
 // ─── HIDE CLOSED TOGGLE ──────────────────────────────────────────────────────
 function toggleClosed(cb) {
   localStorage.setItem("hideClosed", cb.checked ? "1" : "0");
@@ -1039,6 +1068,23 @@ function renderTable() {
         </select>
       </td>
       <td style="font-size:0.8rem;color:#555;max-width:220px;">${g.notes}</td>
+      <td style="width:36px;padding:4px 2px;text-align:center;vertical-align:middle;">
+        <button class="expand-btn" onclick="toggleExpand(${g.id})" title="Show summary">▾</button>
+      </td>
+    </tr>
+    <tr class="detail-row" id="detail-${g.id}" style="display:none">
+      <td colspan="8">
+        <div class="detail-panel">
+          <div class="detail-block">
+            <h4>What this grant funds</h4>
+            <p>${escapeHtml(grantPurpose(g))}</p>
+          </div>
+          <div class="detail-block">
+            <h4>Why Chabad qualifies</h4>
+            <p>${escapeHtml(grantFit(g))}</p>
+          </div>
+        </div>
+      </td>
     </tr>`;
   }).join("");
 }
@@ -1104,7 +1150,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-06-14T21:04:43";
+const LAST_UPDATED = "2026-06-14T21:12:41";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
