@@ -968,7 +968,7 @@ Write in a straightforward, rural-community-focused tone appropriate for an FCC 
     deadline: "2026-07-27",
     status: "OPEN",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://innisfilcommunityfoundation.ca/apply-for-a-grant/",
     notes: "Deadline July 27, 2026. Local Innisfil foundation — $75K total pool distributed among recipients. Registered charities eligible. Projects must benefit Innisfil residents. Strong fit: seniors programs, playground, or community events.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for an Innisfil Community Foundation grant.
@@ -1010,7 +1010,7 @@ Write in a warm, locally-focused tone appropriate for a community foundation. Em
     deadline: "2027-02-27",
     status: "UPCOMING",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://www.canadapost-postescanada.ca/cpc/en/our-company/community-foundation/community-foundation-application.page",
     notes: "2026 window closed (Feb 9–27). Next intake: ~Feb 9–27, 2027. Daycares, schools, and recreation centres are explicitly eligible. Up to $5,000 for playground equipment. Easy 30–60 min application. Start preparing now.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Canada Post Community Foundation Project Grant.
@@ -1038,6 +1038,50 @@ Please write a complete Canada Post Community Foundation Project Grant applicati
 5. How the project benefits the local Innisfil community
 
 Keep the application concise and practical. Write in a friendly, community-focused tone appropriate for a corporate community grant.`
+  }
+  ,
+  {
+    id: 19,
+    funder: "RBC Foundation",
+    program: "Community Spaces Grant",
+    category: "Infrastructure / Accessibility",
+    amount: "$25,000 – $2,500,000",
+    amountNum: 200000,
+    deadline: null,
+    status: "UPCOMING",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://www.rbc.com/our-impact/apply-for-funding/rbc-foundation-community-spaces-grant/index.html",
+    notes: "2026 intake closed — next cycle opens ~November 2026. Capital projects improving environmental sustainability and/or accessibility in community buildings/spaces. Playground or building upgrades are eligible. Up to $2.5M over 5 years.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the RBC Foundation Community Spaces Grant.
+
+GRANT: RBC Foundation Community Spaces Grant
+FUNDER: RBC Foundation
+AMOUNT: $25,000 – $2,500,000 (over up to 5 years)
+DEADLINE: ~November 2026 (annual intake; 2026 applications closed — check back Fall 2026)
+PURPOSE: Funds capital projects that improve environmental sustainability and/or enhance accessibility in public community buildings and spaces across Canada.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area, Simcoe County, Ontario
+- Registered Canadian charity
+- Operates a synagogue/community centre, licensed kindergarten/daycare, and hosts public programming for youth, seniors, and families
+- New initiative: outdoor playground and accessible community space on Chabad's property
+
+PROJECT TO FUND (choose best fit):
+Option A: Accessible Outdoor Community Playground — design and build an accessible outdoor play space for children in Chabad's licensed daycare and the broader Innisfil community, meeting AODA accessibility standards
+Option B: Building Accessibility Upgrades — improve building accessibility (wheelchair ramps, accessible washrooms, widened doorways) to enable fuller participation by seniors and persons with disabilities
+Option C: Energy Efficiency Retrofit — reduce the environmental footprint of Chabad's community centre through insulation upgrades, LED lighting, and efficient HVAC systems
+
+Please write a complete RBC Foundation Community Spaces Grant application including:
+1. Organization description and charitable mandate
+2. Project description — specific capital improvements planned
+3. Environmental sustainability and/or accessibility outcomes
+4. Community benefit — who uses the space and how
+5. Detailed budget breakdown
+6. Multi-year project timeline if applicable
+7. Organizational capacity to manage the project
+
+Write in a professional, outcomes-focused tone appropriate for a major bank foundation grant. Emphasize environmental sustainability and accessibility outcomes.`
   }
 ];
 // GRANT_DATA_END
@@ -1231,7 +1275,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-06-15T07:13:12";
+const LAST_UPDATED = "2026-06-16T07:11:11";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
