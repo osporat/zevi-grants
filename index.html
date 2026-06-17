@@ -1050,7 +1050,7 @@ Keep the application concise and practical. Write in a friendly, community-focus
     deadline: null,
     status: "UPCOMING",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://www.rbc.com/our-impact/apply-for-funding/rbc-foundation-community-spaces-grant/index.html",
     notes: "2026 intake closed — next cycle opens ~November 2026. Capital projects improving environmental sustainability and/or accessibility in community buildings/spaces. Playground or building upgrades are eligible. Up to $2.5M over 5 years.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the RBC Foundation Community Spaces Grant.
@@ -1082,6 +1082,47 @@ Please write a complete RBC Foundation Community Spaces Grant application includ
 7. Organizational capacity to manage the project
 
 Write in a professional, outcomes-focused tone appropriate for a major bank foundation grant. Emphasize environmental sustainability and accessibility outcomes.`
+  }
+  ,
+  {
+    id: 20,
+    funder: "Canadian Tire Jumpstart Charities",
+    program: "Community Development Grants — 2026-27",
+    category: "Youth / Sports & Recreation",
+    amount: "$1,000 – $100,000+",
+    amountNum: 15000,
+    deadline: null,
+    status: "WATCH",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://jumpstart.canadiantire.ca/pages/community-development-grants",
+    notes: "NEW 2026-27 cycle open. Fall intake: programs Sep 1–Dec 31, 2026 (apps opened Apr 6). Programming stream: sports & rec for kids 4–18 in financial need. Operational stream: admin costs. Range up to $100K+. Check site for closing deadline.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for a Canadian Tire Jumpstart Community Development Grant.
+
+GRANT: Community Development Grants — Programming Stream
+FUNDER: Canadian Tire Jumpstart Charities
+AMOUNT: $1,000 – $100,000+ (based on program scope)
+DEADLINE: Check jumpstart.canadiantire.ca for current cycle deadline
+PURPOSE: Supports sports and recreational programming for children aged 4–18 facing financial barriers, and for youth with disabilities aged 4–25.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area, Simcoe County, Ontario
+- Registered Canadian charity
+- Youth programming: summer day camp, Hebrew school, holiday events, sports days, year-round recreational activities
+- Serves children and families of all income levels in Innisfil
+
+PROGRAM TO FUND:
+Summer Day Camp and Youth Recreation Access Program — subsidizing participation costs for Chabad of Innisfil's summer day camp and year-round youth recreational programming for children aged 4–18 from low-income families in Innisfil and the Barrie area. Remove financial barriers so every child can participate regardless of family income.
+
+Please write a complete Jumpstart Community Development Grant application including:
+1. Organization background and charitable mandate
+2. Description of youth programming (summer camp, sports days, recreational activities)
+3. Financial barriers being addressed and target population
+4. Approximate number of children served and income demographics
+5. Budget: how grant funds reduce barriers (subsidized registration, equipment, staffing)
+6. Outcomes: measurable improvements in children's lives through participation
+
+Write in an energetic, child-focused tone appropriate for a sports and recreation community grant.`
   }
 ];
 // GRANT_DATA_END
@@ -1275,7 +1316,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-06-16T07:11:11";
+const LAST_UPDATED = "2026-06-17T07:13:53";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
