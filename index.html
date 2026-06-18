@@ -617,7 +617,7 @@ Tone: direct, practical, security-focused. First come, first served — apply im
     appStatus: "Not started",
     isNew: false,
     url: "https://www.publicsafety.gc.ca/cnt/cntrng-crm/crm-prvntn/fndng-prgrms/cnd-cmmnt-scrt-prgrm/pply-en.aspx",
-    notes: "Replaces old SIP. Continuous intake — apply anytime, first-come first-served. $10M dedicated Jewish community fund (PM Carney, June 1, 2026). Covers 70% of eligible costs; max $5M/project (raised). $75M added over 5 years.",
+    notes: "Replaces old SIP. Continuous intake — apply anytime, first-come first-served. $10M dedicated Jewish community fund (PM Carney, June 1, 2026). Covers 70% of eligible costs; max $5M/project (raised). $75M added over 5 years (2026-27+). Expanded eligible items: mechanical bollards, biometric cameras, licensed security guards (new). Simplified application process with strict assessment timelines.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Canada Community Security Program (CCSP).
 
 GRANT: Canada Community Security Program (CCSP)
@@ -747,16 +747,16 @@ Write in a warm, evidence-based tone appropriate for a Canadian private foundati
   {
     id: 12,
     funder: "Walmart Canada",
-    program: "Spark Good Local Grants",
+    program: "Community Local Grants",
     category: "Community Programming",
-    amount: "$250 – $5,000",
-    amountNum: 2625,
-    deadline: "2026-07-15",
+    amount: "~$1,000",
+    amountNum: 1000,
+    deadline: null,
     status: "OPEN",
     appStatus: "Not started",
     isNew: false,
     url: "https://www.walmart.ca/en/content/spark-good-local-grants",
-    notes: "Easy online application — minimal paperwork. Ideal for playground equipment, youth programs, or community events. Tie to nearest Walmart store (Barrie/Innisfil).",
+    notes: "Walmart Canada corporate giving — $1,000 local grants, rolling intake (no fixed deadline). Note: US 'Spark Good' program is US-only. Canada program: registered charities near a Walmart store. Ideal for playground, youth programs, or community events. Tie to nearest Walmart (Barrie/Innisfil).",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Walmart Canada Spark Good Local Grant.
 
 GRANT: Spark Good Local Grants
@@ -1094,7 +1094,7 @@ Write in a professional, outcomes-focused tone appropriate for a major bank foun
     deadline: null,
     status: "WATCH",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://jumpstart.canadiantire.ca/pages/community-development-grants",
     notes: "NEW 2026-27 cycle open. Fall intake: programs Sep 1–Dec 31, 2026 (apps opened Apr 6). Programming stream: sports & rec for kids 4–18 in financial need. Operational stream: admin costs. Range up to $100K+. Check site for closing deadline.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for a Canadian Tire Jumpstart Community Development Grant.
@@ -1123,6 +1123,47 @@ Please write a complete Jumpstart Community Development Grant application includ
 6. Outcomes: measurable improvements in children's lives through participation
 
 Write in an energetic, child-focused tone appropriate for a sports and recreation community grant.`
+  }
+  ,
+  {
+    id: 21,
+    funder: "Canadian Dermatology Association",
+    program: "Shade Structure Grant Program",
+    category: "Playground / Infrastructure",
+    amount: "Up to $7,500",
+    amountNum: 7500,
+    deadline: null,
+    status: "WATCH",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://dermatology.ca/public-patients__trashed/sun-protection/shade-structure-grant-program/",
+    notes: "Annual grants (5 awarded/year) for permanent shade structures at daycares, schools, parks, and nonprofits. Typical intake: spring. 2026 cycle status unclear — check CDA website. Perfect fit for Chabad's daycare outdoor playground. Up to $7,500 for shade structure purchase/construction.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Canadian Dermatology Association Shade Structure Grant.
+
+GRANT: Shade Structure Grant Program
+FUNDER: Canadian Dermatology Association (CDA)
+AMOUNT: Up to $7,500
+DEADLINE: Annual intake (typically spring) — check dermatology.ca for current cycle
+PURPOSE: Provides grants for permanent shade structures at schools, daycares, city parks, and nonprofit organizations to protect children and community members from UV radiation.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area, Simcoe County, Ontario
+- Registered Canadian charity
+- Operates a licensed kindergarten/daycare program for children ages 3–6
+- New initiative: outdoor playground for daycare children and the broader community
+
+PROJECT TO FUND:
+Purchase and install a permanent shade structure over the outdoor playground area at Chabad of Innisfil's licensed daycare. The shade structure will protect approximately 25 enrolled daycare children (ages 3–6) and neighbourhood families from harmful UV radiation during outdoor play, promoting safe sun-healthy habits from an early age.
+
+Please write a complete CDA Shade Structure Grant application including:
+1. Organization description (registered charity, licensed daycare operator)
+2. Description of the outdoor space and current sun exposure issue
+3. Proposed shade structure — size, materials, permanent installation plan
+4. Number of children and community members protected
+5. Budget breakdown (up to $7,500 for shade structure purchase and installation)
+6. How the structure promotes sun-safe behaviour and UV protection education
+
+Write in a health-focused, child-safety tone appropriate for a medical professional association grant.`
   }
 ];
 // GRANT_DATA_END
@@ -1316,7 +1357,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-06-17T07:13:53";
+const LAST_UPDATED = "2026-06-18T07:14:09";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
