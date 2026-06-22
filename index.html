@@ -713,7 +713,7 @@ Write in a warm, evidence-based, community-focused tone appropriate for an Ontar
     appStatus: "Not started",
     isNew: false,
     url: "https://lawson.ca/our-work/early-child-development/",
-    notes: "URGENT — deadline June 30, 2026 (9 days!). Canadian private foundation investing in children & youth wellbeing. Licensed daycare/kindergarten is a direct fit. Seed grants up to $50K; multi-year projects up to $300K.",
+    notes: "URGENT — deadline June 30, 2026 (8 days!). Canadian private foundation investing in children & youth wellbeing. Licensed daycare/kindergarten is a direct fit. Seed grants up to $50K; multi-year projects up to $300K.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for a Lawson Foundation grant.
 
 GRANT: Early Child Development / Healthy Active Living
@@ -1219,7 +1219,7 @@ Write in a community-focused, outcomes-based tone appropriate for an Ontario gov
     deadline: null,
     status: "WATCH",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://ecclesiastical.ca/giving-back/community-impact-grant/",
     notes: "Annual program open to registered Canadian charities. 2025 cycle distributed $1M to 47 organizations (~$21K avg). Focus: food security, education, health & wellbeing. Faith-based orgs welcome — Ecclesiastical specializes in insuring religious organizations. Check communityimpactgrant.ca for 2026 application window.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Ecclesiastical Insurance Community Impact Grant.
@@ -1262,7 +1262,7 @@ Write in a warm, mission-driven tone appropriate for a faith-aligned insurer tha
     deadline: "2027-02-28",
     status: "UPCOMING",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://www.kaltire.com/en/kals-replay-fund/",
     notes: "Annual grant for recycled rubber playground surfacing. Next intake: January–February 2027. Open to nonprofits, charities, First Nations, schools, and municipalities Canada-wide. Covers premium cost of recycled rubber (not full installation). Obtain quotes from Kal Tire's preferred suppliers before applying.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for Kal Tire's Kal's RePlay Fund.
@@ -1294,6 +1294,48 @@ Please write a complete Kal's RePlay Fund application including:
 6. How the grant amount covers the premium cost of recycled vs. conventional materials
 
 Write in a practical, sustainability-focused tone appropriate for a corporate environmental grant program.`
+  }
+  ,
+  {
+    id: 25,
+    funder: "Ontario Ministry for Seniors and Accessibility",
+    program: "Enhancing Access to Spaces for Everyone (EASE) Grant",
+    category: "Playground / Infrastructure",
+    amount: "Up to $60,000",
+    amountNum: 60000,
+    deadline: null,
+    status: "WATCH",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://www.ontario.ca/page/enhancing-access-spaces-everyone-ease-grant",
+    notes: "2026-27 cycle closed May 7, 2026. Next intake expected early 2027. Up to $60,000 (100% of eligible costs) for accessibility improvements to outdoor spaces and community facilities. Nonprofits eligible. Perfect fit for Chabad's accessible playground — covers AODA-compliant surfacing, accessible equipment, and pathways.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Ontario Enhancing Access to Spaces for Everyone (EASE) Grant.
+
+GRANT: Enhancing Access to Spaces for Everyone (EASE) Grant
+FUNDER: Ontario Ministry for Seniors and Accessibility
+AMOUNT: Up to $60,000 (100% of eligible costs covered)
+DEADLINE: Annual intake — next expected early 2027 (2026-27 cycle closed May 7, 2026)
+PURPOSE: Funds small capital projects that make outdoor spaces, built environments, and community facilities more accessible and inclusive for people with disabilities and older adults across Ontario.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area, Simcoe County, Ontario
+- Registered Canadian charity
+- Operates a licensed kindergarten/daycare program for children ages 3–6
+- Provides regular seniors programming for elderly community members — reducing isolation and supporting healthy aging
+- New initiative: outdoor accessible playground on Chabad's property, open to the broader Innisfil community
+
+PROJECT TO FUND:
+Design and build an accessible outdoor playground and community space at Chabad of Innisfil that meets AODA (Accessibility for Ontarians with Disabilities Act) standards. The accessible playground will serve children in our licensed daycare and be fully accessible to seniors, persons with disabilities, and families in the Innisfil community. Features include accessible rubber surfacing, accessible play equipment, accessible pathway connections, and seating areas for older adults and caregivers.
+
+Please write a complete EASE Grant application including:
+1. Organization description and charitable mandate
+2. Description of the existing outdoor space and current accessibility barriers
+3. Proposed capital project — AODA-compliant playground specifications (accessible surfacing, accessible equipment, pathway connections, seating)
+4. Who benefits — daycare children, seniors, persons with disabilities, and the broader Innisfil community (include estimated numbers)
+5. Detailed budget (up to $60,000 — 100% eligible costs)
+6. How the project improves quality of life for older adults and people with disabilities
+
+Write in a practical, accessibility-focused tone appropriate for an Ontario provincial government grant.`
   }
 ];
 // GRANT_DATA_END
@@ -1487,7 +1529,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-06-21T07:13:35";
+const LAST_UPDATED = "2026-06-22T07:12:24";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
