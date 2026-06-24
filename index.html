@@ -713,7 +713,7 @@ Write in a warm, evidence-based, community-focused tone appropriate for an Ontar
     appStatus: "Not started",
     isNew: false,
     url: "https://lawson.ca/our-work/early-child-development/",
-    notes: "URGENT — deadline June 30, 2026 (8 days!). Canadian private foundation investing in children & youth wellbeing. Licensed daycare/kindergarten is a direct fit. Seed grants up to $50K; multi-year projects up to $300K.",
+    notes: "⚠️ URGENT — deadline June 30, 2026 (6 DAYS). Canadian private foundation investing in children & youth wellbeing. Licensed daycare/kindergarten is a direct fit. Seed grants up to $50K; multi-year projects up to $300K.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for a Lawson Foundation grant.
 
 GRANT: Early Child Development / Healthy Active Living
@@ -1345,18 +1345,18 @@ Write in a practical, accessibility-focused tone appropriate for an Ontario prov
     category: "Cultural / Tourism / Events",
     amount: "$20,000 – $125,000",
     amountNum: 70000,
-    deadline: null,
+    deadline: "2026-12-16",
     status: "UPCOMING",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://www.tpon.gov.on.ca/eo/",
-    notes: "2026 intake closed Dec 16, 2025. Next 2027 intake opens ~November 2026. Supports tourism-drawing Ontario festivals and events. Perfect fit for an annual Chabad Jewish Heritage & Cultural Festival. Up to $125K (50% match required). Prepare event plan and attendance data now.",
+    notes: "2026 intake closed. 2027 intake opens ~November 2026, deadline December 16, 2026 at 4 PM ET. Supports tourism-drawing Ontario festivals and events. Perfect fit for an annual Chabad Jewish Heritage & Cultural Festival. Up to $125K (50% match required). Prepare event plan and attendance data now.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Experience Ontario Program.
 
 GRANT: Experience Ontario Program
 FUNDER: Ontario Ministry of Tourism, Culture and Gaming
 AMOUNT: $20,000 – $125,000 (up to 50% of eligible costs; 50% match required)
-DEADLINE: ~December 2026 (2027 intake expected to open November 2026)
+DEADLINE: December 16, 2026 at 4 PM ET (2027 intake opens November 2026)
 PURPOSE: Supports in-person Ontario festivals and events that attract visitors from beyond the local area, generate tourism spending, and showcase Ontario's diverse culture and heritage.
 
 ABOUT THE ORGANIZATION:
@@ -1390,7 +1390,7 @@ Write in a dynamic, tourism-focused tone appropriate for an Ontario provincial e
     deadline: null,
     status: "WATCH",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://granthub.ca/guide/grants-for-opening-a-daycare-in-ontario",
     notes: "Capital start-up funding for new licensed child care spaces under the Canada-Wide Early Learning and Child Care Agreement (CWELCC). Applied through County of Simcoe Children's Services (local CMSM — not a direct provincial application). Ontario prioritizes nonprofit operators. $1,200/space in start-up funding. Contact County of Simcoe Children's Services to confirm current intake availability.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for Canada-Wide Early Learning and Child Care (CWELCC) start-up capital funding to expand licensed child care spaces.
@@ -1424,6 +1424,47 @@ Please write a complete CWELCC start-up application letter/inquiry to the County
 6. How the expansion serves the County of Simcoe's child care planning goals
 
 Write in a professional, collaborative tone appropriate for a municipal government partnership. Emphasize nonprofit operator priority and the community need for affordable child care in Innisfil.`
+  }
+  ,
+  {
+    id: 28,
+    funder: "TD Bank Group",
+    program: "TD Friends of the Environment Foundation (FEF) Grant",
+    category: "Playground / Infrastructure",
+    amount: "$2,000 – $8,000",
+    amountNum: 5000,
+    deadline: "2026-07-15",
+    status: "OPEN",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://www.td.com/ca/en/about-td/ready-commitment/funding/fef-grant",
+    notes: "⚠️ Deadline July 15, 2026 (21 days). Environmental green space grants accepted twice per year (Jan 15 & Jul 15). $2K–$8K for native plantings, natural materials, green space creation. Outdoor playground with native plants/natural elements qualifies. Apply via TD online portal at td.com.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the TD Friends of the Environment Foundation Grant.
+
+GRANT: TD Friends of the Environment Foundation (FEF) Grant
+FUNDER: TD Bank Group / TD Friends of the Environment Foundation
+AMOUNT: $2,000 – $8,000
+DEADLINE: July 15, 2026 (applications accepted twice per year: January 15 and July 15)
+PURPOSE: Supports environmental projects across Canada including environmental education, community sustainability, and creation or improvement of green spaces.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area, Simcoe County, Ontario
+- Registered Canadian charity
+- Operates a licensed kindergarten/daycare program for children ages 3–6
+- New initiative: nature-inspired outdoor green space and playground on Chabad's property, serving licensed daycare children and the broader Innisfil community
+
+PROJECT TO FUND:
+Develop an outdoor green space and nature playground at Chabad of Innisfil's property. The project will incorporate native plantings, natural play elements (logs, boulders, sensory gardens), and sustainable landscaping to create an outdoor environmental education space. The green space will connect 25+ licensed daycare children with nature daily and foster environmental stewardship values from an early age. The space will also be accessible to neighbourhood families, extending its community benefit beyond Chabad's daycare enrollment.
+
+Please write a complete TD FEF Grant application including:
+1. Organization description (registered charity, licensed daycare operator, community hub in Innisfil)
+2. Project description — outdoor green space with native plants, natural play elements, and environmental education features
+3. Environmental benefit — native plant species, sustainable materials, reduced lawn/hardscape footprint
+4. Environmental education component — how children and families will engage with nature through the space
+5. Community benefit — who uses the green space, estimated reach, and how it promotes sustainability values
+6. Budget breakdown ($2,000–$8,000 for native plantings, natural materials, sustainable surfacing, or related greening costs)
+
+Write in an environmentally focused, community-oriented tone appropriate for a bank environmental grant program. Emphasize nature-based learning, connection to the natural environment, and long-term environmental education benefits for young children.`
   }
 ];
 // GRANT_DATA_END
@@ -1617,7 +1658,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-06-23T07:14:22";
+const LAST_UPDATED = "2026-06-24T07:16:23";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
