@@ -532,12 +532,12 @@ Tone: professional, partnership-oriented, data-informed where possible.`
     category: "Cultural / Jewish Heritage",
     amount: "$10,000 – $200,000",
     amountNum: 30000,
-    deadline: null,
-    status: "WATCH",
+    deadline: "2026-10-15",
+    status: "UPCOMING",
     appStatus: "Not started",
     isNew: false,
     url: "https://www.canada.ca/en/canadian-heritage/services/funding/communities-arts-heritage.html",
-    notes: "Local Festivals stream: 3 annual intakes — Jan 31, Apr 30, Oct 15 (next: Oct 15, 2026). Legacy Fund: continuous intake, submit 6–12 months before project. Community Anniversaries: May 31 annual (next: May 31, 2027).",
+    notes: "⚠️ UPCOMING: Local Festivals deadline Oct 15, 2026 (for summer 2027 festivals). Jan 31 and Apr 30 intakes passed. Up to $200K, 100% of costs. Legacy Fund: continuous intake, submit 6–12 months before event. Community Anniversaries: May 31 annual (next: May 31, 2027).",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario, apply for the Canadian Heritage "Building Communities Through Arts and Heritage" program.
 
 GRANT: Building Communities Through Arts and Heritage — Local Festivals and Events
@@ -1438,7 +1438,7 @@ Write in an environmentally focused, community-oriented tone appropriate for a b
     deadline: null,
     status: "WATCH",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://www.innisfil.ca/community-recreation/grants-volunteering",
     notes: "Annual $1,000 grants for food projects promoting community connection, cultural celebration, or food access (funded via Commonwell LEAF). 2026 cycle: 18 grants awarded ~April 2026. Watch for 2027 call — typically opens Jan/Feb. Great fit for Chabad's Shabbat dinners or holiday meals.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Town of Innisfil Community Food Projects Grant.
@@ -1466,6 +1466,52 @@ Please write a concise Town of Innisfil Community Food Projects Grant applicatio
 5. Budget for the $1,000 grant (food, supplies, venue costs)
 
 Keep the application very brief — 1 page maximum. Write in a friendly, locally-focused tone appropriate for a Town of Innisfil community grant.`
+  }
+  ,
+  {
+    id: 30,
+    funder: "Ontario Ministry of Citizenship and Multiculturalism",
+    program: "Seniors Community Grant Program",
+    category: "Seniors",
+    amount: "Up to $25,000",
+    amountNum: 12500,
+    deadline: null,
+    status: "WATCH",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://www.ontario.ca/page/seniors-community-grant-program",
+    notes: "Annual grants up to $25,000 for nonprofits running seniors programming. 2026-27 cycle closed Dec 18, 2025. Watch for 2027-28 call (typically opens fall/winter 2026). Must register in Transfer Payment Ontario first. Perfect fit for Chabad's seniors social inclusion programs.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Ontario Seniors Community Grant Program.
+
+GRANT: Seniors Community Grant Program
+FUNDER: Ontario Ministry of Citizenship and Multiculturalism
+AMOUNT: Up to $25,000 (incorporated nonprofits); up to $10,000 (unincorporated seniors groups)
+DEADLINE: Annual intake — watch for 2027-28 call (typically opens fall/winter 2026)
+PURPOSE: Funds community projects that involve older adults and address Ontario's seniors priorities including social inclusion, volunteerism, and healthy active aging.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area, Simcoe County, Ontario
+- Registered Canadian charity
+- Current seniors programs: weekly Shabbat community gatherings, holiday celebrations, friendly visitor outreach, Zoom Torah study classes, seniors lunch programs
+- Serves Jewish and general community seniors in Innisfil and surrounding Simcoe County
+
+PRE-APPLICATION NOTE:
+Must register in Transfer Payment Ontario (TPO) at ontario.ca/tpon before applying. This is the Ontario government's grant management portal.
+
+PROGRAM TO FUND:
+Seniors Social Inclusion & Wellbeing Program — expanding Chabad of Innisfil's existing seniors programming to reduce isolation, increase social participation, and support healthy aging for older adults in Innisfil and Simcoe County.
+
+Please write a complete Ontario Seniors Community Grant application including:
+1. Organization description and experience serving seniors
+2. Description of the proposed project or program expansion
+3. Alignment with Ontario seniors priorities (social inclusion, reducing isolation, active aging)
+4. Target seniors population and identified need in Innisfil/Simcoe County
+5. Planned activities, schedule, and expected number of seniors served
+6. Measurable outcomes and evaluation approach
+7. Budget narrative (up to $25,000)
+8. How the project is sustainable beyond the grant period
+
+Write in a clear, evidence-based tone appropriate for an Ontario provincial government grant application.`
   }
 ];
 // GRANT_DATA_END
@@ -1659,7 +1705,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-06-25T13:00:02";
+const LAST_UPDATED = "2026-06-27T07:13:16";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
