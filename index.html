@@ -1522,11 +1522,11 @@ Write in a clear, evidence-based tone appropriate for an Ontario provincial gove
     amount: "Up to $10,000",
     amountNum: 10000,
     deadline: "2026-06-30",
-    status: "OPEN",
+    status: "CLOSED",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://www.tpon.gov.on.ca/ahspg/",
-    notes: "🚨 CLOSES TOMORROW — June 30, 2026 at 5 PM EST. New one-time $600K stream for Jewish summer camps only. Up to $10,000 for security guards, cameras, facility upgrades. First come, first served. Separate from general AHSP round (closed Dec 2025). APPLY TODAY.",
+    notes: "Closed June 30, 2026. Was a one-time $600K stream for Jewish summer camps only (up to $10,000 for security guards, cameras, facility upgrades). General AHSP 2026-27 round expected fall 2026.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Ontario Anti-Hate Security and Prevention Grant — Jewish Summer Camps Stream.
 
 GRANT: Anti-Hate Security and Prevention Grant — Jewish Summer Camps Stream
@@ -1570,7 +1570,7 @@ Tone: Direct, practical, urgent. First-come, first-served — June 30 deadline.`
     deadline: null,
     status: "WATCH",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://experience.simcoe.ca/resources/grant/",
     notes: "Annual Simcoe County tourism & culture fund ($400K pool; 54 grants in 2026). 2026 intake closed Feb 13. Next cycle: ~January–February 2027. Up to $10,000 for events/marketing attracting visitors to Simcoe County. Chabad's Jewish Heritage Festival is a strong fit. Email tourism@simcoe.ca to be notified.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Experience Simcoe County Partnership Fund.
@@ -1611,7 +1611,7 @@ Write in a tourism-focused tone. Emphasize visitor draw, regional spend, and Sim
     deadline: null,
     status: "WATCH",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://simcoe.ca/social-and-community-investment-fund-scif/",
     notes: "Annual Simcoe County grants for nonprofits reducing poverty, food insecurity, and strengthening community stability. 2026 deadline: March 16 (closed). Next intake: ~January/February 2027. Email scif@simcoe.ca to be notified. Strong fit for Chabad's community dinners, seniors meals, and food support programs.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the County of Simcoe Social and Community Investment Fund (SCIF).
@@ -1641,6 +1641,51 @@ Please write a complete SCIF application including:
 6. How the program avoids duplicating existing publicly funded services in Simcoe County
 
 Write in a community-needs-focused, evidence-informed tone appropriate for a county government fund.`
+  }
+  ,
+  {
+    id: 34,
+    funder: "TELUS Friendly Future Foundation",
+    program: "Barrie & Central Ontario Community Board Grant",
+    category: "Children & Youth",
+    amount: "Up to $10,000",
+    amountNum: 10000,
+    deadline: "2026-07-31",
+    status: "OPEN",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://www.friendlyfuture.com/en/foundation/apply-for-funding",
+    notes: "⚠️ Deadline July 31, 2026 (31 days). Barrie & Central Ontario board: up to $10,000 for youth health/education programs. ⚠️ Must apply as youth education provider (daycare, Hebrew school, summer camp) — TELUS requires non-denominational community participation. Tech-enhanced programs preferred.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the TELUS Friendly Future Foundation Barrie & Central Ontario Community Board Grant.
+
+GRANT: TELUS Friendly Future Foundation — Barrie & Central Ontario Community Board
+FUNDER: TELUS Friendly Future Foundation
+AMOUNT: Up to $10,000
+DEADLINE: July 31, 2026
+PURPOSE: Supports local grassroots youth health and education programs for youth up to age 29 facing obstacles, with preference for programs that use technology to enhance impact.
+
+IMPORTANT — FRAMING: Apply as a youth education and community programming provider, NOT as a religious organization. TELUS requires that funded programs demonstrate non-denominational community participation from the broader community. Chabad's licensed daycare, community school programs, and summer day camp serve all Innisfil/Barrie area youth regardless of religious background — frame the application this way.
+
+ABOUT THE ORGANIZATION (use this framing):
+- Chabad of Innisfil Community Centre operates licensed early childhood education and community youth programs in Innisfil, Ontario
+- Registered Canadian charity
+- Youth programs: licensed kindergarten/daycare (ages 3–6), community school and cultural education (open to all children), summer day camp, monthly family programming
+- Programs are open to all youth in Innisfil/Barrie regardless of background — serving diverse community families
+
+PROGRAM TO FUND (choose best fit):
+Option A: Daycare Digital Learning Initiative — integrating tablets, educational apps, and interactive digital tools into our licensed daycare to enhance early childhood learning for children ages 3–6 in Innisfil
+Option B: Youth Community Education Technology Program — providing technology-enhanced learning tools (tablets, online curriculum, digital literacy tools) for youth ages 6–18 at our community centre
+
+Please write a complete TELUS Friendly Future Foundation application including:
+1. Organization description — lead with youth education and community programming
+2. Description of the specific youth program to be funded
+3. Technology integration component — how technology enhances program effectiveness and outcomes
+4. Target youth population (ages, demographics, barriers they face in Innisfil/Barrie)
+5. Non-denominational community participation — evidence of diverse community engagement
+6. Measurable outcomes for youth participants
+7. Budget breakdown (up to $10,000 for technology and program delivery costs)
+
+Write in a clear, youth-focused, technology-forward tone appropriate for a telecommunications company's foundation. Emphasize youth development outcomes, technology integration, broad non-denominational community participation, and measurable impact on youth in the Barrie/Innisfil area.`
   }
 ];
 // GRANT_DATA_END
@@ -1834,7 +1879,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-06-29T07:14:53";
+const LAST_UPDATED = "2026-06-30T07:13:58";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
