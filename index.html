@@ -1606,14 +1606,14 @@ Write in a tourism-focused tone. Emphasize visitor draw, regional spend, and Sim
     funder: "County of Simcoe",
     program: "Social and Community Investment Fund (SCIF)",
     category: "Community Programming",
-    amount: "Varies (micro and regular grants)",
+    amount: "$5,000 – $100,000 (two streams)",
     amountNum: 15000,
     deadline: null,
     status: "WATCH",
     appStatus: "Not started",
     isNew: false,
     url: "https://simcoe.ca/social-and-community-investment-fund-scif/",
-    notes: "Annual Simcoe County grants for nonprofits reducing poverty, food insecurity, and strengthening community stability. 2026 deadline: March 16 (closed). Next intake: ~January/February 2027. Email scif@simcoe.ca to be notified. Strong fit for Chabad's community dinners, seniors meals, and food support programs.",
+    notes: "Now split into two streams: Micro-grant ($5,000–$20,000) opened Feb 23, 2026 — likely already closed/awarded. Standard/larger stream ($20,001–$100,000) currently closed; next opening expected toward end of 2026. Email scif@simcoe.ca to be notified. Strong fit for Chabad's community dinners, seniors meals, and food support programs.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the County of Simcoe Social and Community Investment Fund (SCIF).
 
 GRANT: Social and Community Investment Fund (SCIF)
@@ -1686,6 +1686,49 @@ Please write a complete TELUS Friendly Future Foundation application including:
 7. Budget breakdown (up to $10,000 for technology and program delivery costs)
 
 Write in a clear, youth-focused, technology-forward tone appropriate for a telecommunications company's foundation. Emphasize youth development outcomes, technology integration, broad non-denominational community participation, and measurable impact on youth in the Barrie/Innisfil area.`
+  }
+  ,
+  {
+    id: 35,
+    funder: "Ontario Trillium Foundation",
+    program: "Capital Grant",
+    category: "Playground / Infrastructure",
+    amount: "$10,000 – $200,000",
+    amountNum: 105000,
+    deadline: null,
+    status: "WATCH",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://otf.ca/our-grants/community-investments-grants/capital-grant",
+    notes: "2026 window closed Mar 4 (Feb 4–Mar 4, 2026); next window not yet announced, likely ~Feb 2027. Distinct from OTF's Community Building Fund Capital Stream (#22). Funds building/space upgrades & equipment — strong fit for the playground project. ⚠️ Apply framed as a secular community space (playground/daycare/youth) — OTF permits religious-org applicants only when the funded project itself is not used for religious observance.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Ontario Trillium Foundation Capital Grant.
+
+GRANT: Ontario Trillium Foundation — Capital Grant
+FUNDER: Ontario Trillium Foundation (OTF)
+AMOUNT: $10,000 – $200,000
+DEADLINE: Annual intake — 2026 window closed March 4 (Feb 4–Mar 4, 2026); next window not yet announced, likely ~February 2027
+PURPOSE: Funds capital projects — building/space upgrades, renovations, and equipment — for Ontario nonprofits building community capacity.
+
+IMPORTANT — FRAMING: OTF permits registered-charity religious organizations to apply, but the FUNDED PROJECT ITSELF must be secular — not a space or activity used for religious observance. Frame this application around Chabad's licensed daycare and community playground, not the synagogue/worship space.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area
+- Registered Canadian charity
+- Operates a licensed kindergarten/daycare program for children ages 3–6
+- New initiative: outdoor playground and community space on Chabad's property, accessible to the broader Innisfil community
+
+PROJECT TO FUND:
+Capital improvements to build and equip an outdoor playground and community play space at Chabad of Innisfil's property, serving licensed daycare children and neighbourhood families in Innisfil.
+
+Please write a complete OTF Capital Grant application including:
+1. Organization description and charitable mandate (lead with daycare/community programming, not religious observance)
+2. Project description — playground/community space specifications and capital budget
+3. Community need and who benefits (daycare enrollment, neighbourhood reach)
+4. Detailed capital budget
+5. Project timeline
+6. Long-term maintenance and sustainability plan
+
+Write in a practical, outcomes-focused tone appropriate for an Ontario government foundation capital grant. Emphasize the secular, community-facing nature of the funded project.`
   }
 ];
 // GRANT_DATA_END
@@ -1879,7 +1922,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-07-01T07:11:16";
+const LAST_UPDATED = "2026-07-02T09:14:23";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
