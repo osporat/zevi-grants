@@ -1698,7 +1698,7 @@ Write in a clear, youth-focused, technology-forward tone appropriate for a telec
     deadline: null,
     status: "WATCH",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://otf.ca/our-grants/community-investments-grants/capital-grant",
     notes: "2026 window closed Mar 4 (Feb 4–Mar 4, 2026); next window not yet announced, likely ~Feb 2027. Distinct from OTF's Community Building Fund Capital Stream (#22). Funds building/space upgrades & equipment — strong fit for the playground project. ⚠️ Apply framed as a secular community space (playground/daycare/youth) — OTF permits religious-org applicants only when the funded project itself is not used for religious observance.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Ontario Trillium Foundation Capital Grant.
@@ -1729,6 +1729,50 @@ Please write a complete OTF Capital Grant application including:
 6. Long-term maintenance and sustainability plan
 
 Write in a practical, outcomes-focused tone appropriate for an Ontario government foundation capital grant. Emphasize the secular, community-facing nature of the funded project.`
+  }
+  ,
+  {
+    id: 36,
+    funder: "OpenRoad Foundation",
+    program: "Community Grant Program",
+    category: "Community Programming",
+    amount: "$10,000 – $30,000",
+    amountNum: 20000,
+    deadline: "2026-07-15",
+    status: "OPEN",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://www.openroadfoundation.ca/2026giving",
+    notes: "⚠️ Fall 2026 cycle: initial application due July 15, 2026 (two-stage — invitation-only full application follows). Funds Environment/Education/Community pillars for registered Canadian charities in Foundation's BC/Ontario market area. Religious orgs not auto-excluded IF the funded project benefits the whole community (frame around daycare/playground, not worship). ⚠️ GEOGRAPHY UNCLEAR: site says 'Greater Toronto' market area but doesn't define boundaries — Innisfil/Simcoe County is outside the conventional GTA. Recommend Zevi email the Foundation to confirm Innisfil eligibility before investing time in the application.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the OpenRoad Foundation Community Grant Program.
+
+GRANT: Community Grant Program (Fall 2026 cycle)
+FUNDER: OpenRoad Foundation
+AMOUNT: $10,000 – $30,000
+DEADLINE: Initial application due July 15, 2026 (two-stage process — a full application is by invitation only after initial review)
+PURPOSE: Supports registered Canadian charities in the Foundation's BC/Ontario market area whose programs advance Environment, Education, or Community pillars.
+
+IMPORTANT — BEFORE APPLYING: Confirm with the Foundation directly that Innisfil/Simcoe County falls within their defined market area (their materials reference "Greater Toronto" without a precise boundary, and Innisfil is outside the conventional GTA). Also, the Foundation does not fund religious or sectarian programs unless the project is a significant initiative that benefits the entire community — so frame this application around a community-wide project, not worship activities.
+
+ABOUT THE ORGANIZATION (use this framing):
+- Chabad of Innisfil Community Centre — registered Canadian charity operating a licensed kindergarten/daycare and community programming in Innisfil, Ontario
+- Open to the broader Innisfil community, not only Jewish members
+- Serves youth, seniors, and families through education, food security, and community-connection programs
+
+PROJECT TO FUND (choose the pillar that best matches the Foundation's current priorities):
+Option A (Education): Licensed daycare program expansion or early-childhood learning enhancements serving Innisfil families
+Option B (Community): Outdoor playground and community gathering space open to daycare children and the broader neighbourhood
+Option C (Community): Seniors social inclusion and food security programming for isolated seniors in Innisfil/Simcoe County
+
+Please write a complete initial application (stage 1) including:
+1. Organization description — lead with community service and education mandate, not religious observance
+2. Which Foundation pillar (Environment/Education/Community) the project aligns with, and why
+3. Project description and community-wide benefit (explicitly note it serves residents beyond the Jewish community)
+4. Target population and expected reach
+5. Budget range within $10,000–$30,000
+6. Why this project merits an invitation to submit a full application
+
+Write in a professional, community-benefit-focused tone. Do not lead with religious identity — lead with the licensed childcare, education, and open-to-all community programming mandate.`
   }
 ];
 // GRANT_DATA_END
@@ -1922,7 +1966,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-07-02T09:14:23";
+const LAST_UPDATED = "2026-07-03T07:08:52";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
