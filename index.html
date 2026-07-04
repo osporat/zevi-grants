@@ -617,7 +617,7 @@ Tone: direct, practical, security-focused. First come, first served — apply im
     appStatus: "Not started",
     isNew: false,
     url: "https://www.publicsafety.gc.ca/cnt/cntrng-crm/crm-prvntn/fndng-prgrms/cnd-cmmnt-scrt-prgrm/pply-en.aspx",
-    notes: "Replaces old SIP. Continuous intake — apply anytime, first-come first-served. $10M dedicated Jewish community fund (PM Carney, June 1, 2026). Covers 70% of eligible costs; max $5M/project (raised). $75M added over 5 years (2026-27+). Expanded eligible items: mechanical bollards, biometric cameras, licensed security guards (new). Simplified application process with strict assessment timelines.",
+    notes: "Replaces old SIP. Continuous intake — apply anytime, first-come first-served. $10M dedicated Jewish community fund (PM Carney, June 1, 2026) — disbursed via communal security orgs (e.g. federations), so mention this priority stream if applying. Covers 70% of eligible costs; max $5M/project (raised). $75M added over 5 years (2026-27+, confirmed in Spring 2026 Economic Update). Expanded eligible items: mechanical bollards, biometric cameras, licensed security guards (new). Simplified application process with strict assessment timelines.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Canada Community Security Program (CCSP).
 
 GRANT: Canada Community Security Program (CCSP)
@@ -1741,7 +1741,7 @@ Write in a practical, outcomes-focused tone appropriate for an Ontario governmen
     deadline: "2026-07-15",
     status: "OPEN",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://www.openroadfoundation.ca/2026giving",
     notes: "⚠️ Fall 2026 cycle: initial application due July 15, 2026 (two-stage — invitation-only full application follows). Funds Environment/Education/Community pillars for registered Canadian charities in Foundation's BC/Ontario market area. Religious orgs not auto-excluded IF the funded project benefits the whole community (frame around daycare/playground, not worship). ⚠️ GEOGRAPHY UNCLEAR: site says 'Greater Toronto' market area but doesn't define boundaries — Innisfil/Simcoe County is outside the conventional GTA. Recommend Zevi email the Foundation to confirm Innisfil eligibility before investing time in the application.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the OpenRoad Foundation Community Grant Program.
@@ -1773,6 +1773,46 @@ Please write a complete initial application (stage 1) including:
 6. Why this project merits an invitation to submit a full application
 
 Write in a professional, community-benefit-focused tone. Do not lead with religious identity — lead with the licensed childcare, education, and open-to-all community programming mandate.`
+  }
+  ,
+  {
+    id: 37,
+    funder: "Canadian Heritage",
+    program: "Multiculturalism and Anti-Racism Program (MARP) — Events Component",
+    category: "Cultural / Interfaith / Anti-Racism",
+    amount: "Up to $100,000/event ($200,000 for multi-year recurring events)",
+    amountNum: 100000,
+    deadline: null,
+    status: "WATCH",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://www.canada.ca/en/canadian-heritage/services/funding/multiculturalism-anti-racism/events.html",
+    notes: "Most recent intake closed June 10, 2026 (funded events Dec 2026–Mar 2027). Next call expected later in 2026 (program runs ~3 intakes/year). Funds public interfaith/intercultural events or anti-racism programming — NOT purely religious services, so frame around an interfaith event (e.g. public menorah lighting, antisemitism-awareness dialogue) rather than worship.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Canadian Heritage Multiculturalism and Anti-Racism Program (MARP) — Events Component.
+
+GRANT: Multiculturalism and Anti-Racism Program (MARP) — Events Component
+FUNDER: Canadian Heritage (Government of Canada)
+AMOUNT: Up to $100,000 per event (up to $200,000 for a multi-year recurring event over 2 fiscal years)
+DEADLINE: Most recent intake closed June 10, 2026 — next call expected later in 2026 (program typically runs ~3 intakes/year)
+PURPOSE: Funds public events that build inclusion, combat racism and discrimination, and foster intercultural or interfaith understanding. Events that are primarily religious in nature (worship services) are excluded — the event must have a public education, anti-racism, or intercultural-bridge-building purpose.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area, Simcoe County, Ontario
+- Registered Canadian charity, open to the broader community, not only Jewish members
+- Experience hosting public holiday events and community gatherings
+
+EVENT TO FUND:
+A public Interfaith Understanding & Antisemitism Awareness event — e.g., a community menorah lighting or Jewish heritage evening open to all faiths and backgrounds, paired with educational programming on antisemitism, hate-crime prevention, and interfaith dialogue, welcoming clergy and residents of all backgrounds in Innisfil/Simcoe County.
+
+Please write a complete MARP Events Component application including:
+1. Organization description and mandate (community-facing, not worship-focused)
+2. Event description — public, interfaith/intercultural framing and anti-racism education component
+3. How the event fosters inclusion and combats hate/discrimination
+4. Target audience and expected reach across faith/cultural backgrounds
+5. Budget breakdown
+6. Measurable outcomes (attendance, community partnerships, educational impact)
+
+Write in a public-education, inclusion-focused tone appropriate for a federal anti-racism program. Do not frame the event as a religious service — emphasize the interfaith/public-education purpose required for eligibility.`
   }
 ];
 // GRANT_DATA_END
@@ -1966,7 +2006,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-07-03T07:08:52";
+const LAST_UPDATED = "2026-07-04T07:12:17";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
