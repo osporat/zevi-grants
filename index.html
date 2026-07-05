@@ -1785,7 +1785,7 @@ Write in a professional, community-benefit-focused tone. Do not lead with religi
     deadline: null,
     status: "WATCH",
     appStatus: "Not started",
-    isNew: true,
+    isNew: false,
     url: "https://www.canada.ca/en/canadian-heritage/services/funding/multiculturalism-anti-racism/events.html",
     notes: "Most recent intake closed June 10, 2026 (funded events Dec 2026–Mar 2027). Next call expected later in 2026 (program runs ~3 intakes/year). Funds public interfaith/intercultural events or anti-racism programming — NOT purely religious services, so frame around an interfaith event (e.g. public menorah lighting, antisemitism-awareness dialogue) rather than worship.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Canadian Heritage Multiculturalism and Anti-Racism Program (MARP) — Events Component.
@@ -1813,6 +1813,48 @@ Please write a complete MARP Events Component application including:
 6. Measurable outcomes (attendance, community partnerships, educational impact)
 
 Write in a public-education, inclusion-focused tone appropriate for a federal anti-racism program. Do not frame the event as a religious service — emphasize the interfaith/public-education purpose required for eligibility.`
+  }
+  ,
+  {
+    id: 38,
+    funder: "Government of Ontario / Ministry of Education",
+    program: "Liam Riazati Memorial Fund — Child Care Vehicle Safety Barriers",
+    category: "Security / Playground Safety",
+    amount: "Free (concrete barriers supplied, delivered & installed at no cost)",
+    amountNum: 8000,
+    deadline: "2027-03-31",
+    status: "OPEN",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://www.ontario.ca/page/information-child-care-providers",
+    notes: "NEW: Ontario-funded free concrete vehicle-impact barriers for licensed child care centres — covers playground perimeters, parking/drop-off areas, and glass-fronted facades. First-come, first-served until March 31, 2027 or until funds are allocated. Apply via Request for Service (RFS) template to get quotes from 3 pre-approved vendors; concrete barriers only (steel bollards/planters not eligible). Strong direct fit for Chabad's licensed daycare + outdoor playground.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Liam Riazati Memorial Fund child care vehicle safety barrier program.
+
+GRANT: Liam Riazati Memorial Fund — Child Care Vehicle Safety Barriers
+FUNDER: Government of Ontario, Ministry of Education
+AMOUNT: Free — concrete vehicle-impact barriers supplied, delivered, and installed at no cost to the licensee (no cash grant; in-kind safety infrastructure)
+DEADLINE: Rolling, first-come first-served, until March 31, 2027 or until program funding is fully allocated, whichever comes first
+PURPOSE: Installs concrete vehicle-impact barriers at licensed child care centres to protect children from vehicle-related risks in high-exposure zones such as playgrounds, parking/drop-off areas, and glass-fronted facades.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil operates a provincially licensed kindergarten/daycare program for children ages 3–6 in Innisfil, Ontario
+- Registered Canadian charity
+- Has an outdoor playground and a parking/drop-off area adjacent to the child care space
+
+PROJECT TO FUND:
+Installation of concrete vehicle-impact barriers around Chabad of Innisfil's licensed daycare's outdoor playground perimeter and vehicle drop-off area, protecting enrolled children ages 3–6 from vehicle-related safety risks during arrival, pickup, and outdoor play.
+
+STEPS TO APPLY:
+1. Assess the site for vehicle-exposure risk zones (playground perimeter, parking/drop-off, glass facades)
+2. Complete the Ministry's Request for Service (RFS) template
+3. Obtain quotes from at least 3 of the Ministry's pre-approved vendors (concrete barriers only)
+4. Select the most cost-effective vendor and retain all documentation
+
+Please write:
+1. A brief site safety assessment describing the vehicle-exposure risk areas at Chabad's licensed daycare
+2. A short cover note to accompany the Request for Service submission, describing the organization, its licensed child care status, and the specific barrier locations requested
+
+Write in a practical, safety-focused tone appropriate for a Ministry of Education child care safety program.`
   }
 ];
 // GRANT_DATA_END
@@ -2006,7 +2048,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-07-04T07:12:17";
+const LAST_UPDATED = "2026-07-05T07:14:16";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
