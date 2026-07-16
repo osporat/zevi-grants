@@ -50,6 +50,7 @@
   .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
   .dot-green { background: var(--green); }
   .dot-red { background: var(--red); }
+  .dot-yellow { background: var(--yellow); }
   .dot-gray { background: #aaa; }
 
   /* EXPAND BUTTON */
@@ -104,6 +105,7 @@
   /* ROW COLOURS */
   tr.row-new { background: var(--green-bg); }
   tr.row-urgent { background: var(--red-bg); }
+  tr.row-approaching { background: var(--yellow-bg); }
   tr.row-normal { background: white; }
   tr.row-closed { background: #f9f9f9; opacity: 0.7; }
 
@@ -244,7 +246,8 @@
 <!-- LEGEND BAR -->
 <div style="background:white;border-bottom:1px solid var(--border);padding:8px 30px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;">
   <div class="legend-item"><span class="dot dot-green"></span> New this scan</div>
-  <div class="legend-item"><span class="dot dot-red"></span> Closing ≤ 45 days</div>
+  <div class="legend-item"><span class="dot dot-red"></span> Urgent — closing ≤ 4 days</div>
+  <div class="legend-item"><span class="dot dot-yellow"></span> Approaching — ≤ 45 days</div>
   <div class="legend-item"><span class="dot dot-gray"></span> Normal</div>
   <label class="legend-item" style="margin-left:auto;cursor:pointer;gap:6px;user-select:none;">
     <input type="checkbox" id="hide-closed" onchange="toggleClosed(this)" style="cursor:pointer;"> Hide closed grants
@@ -2009,7 +2012,8 @@ function rowClass(grant) {
   if (grant.deadline) {
     const dl = new Date(grant.deadline);
     const days = (dl - today) / 86400000;
-    if (days >= 0 && days <= 45) return "row-urgent";
+    if (days >= 0 && days <= 4) return "row-urgent";
+    if (days > 4 && days <= 45) return "row-approaching";
   }
   if (grant.isNew) return "row-new";
   return "row-normal";
@@ -2021,7 +2025,7 @@ function deadlineClass(deadline) {
   const dl = new Date(deadline);
   const days = (dl - today) / 86400000;
   if (days < 0) return "";
-  if (days <= 14) return "urgent";
+  if (days <= 4) return "urgent";
   if (days <= 45) return "soon";
   return "";
 }
@@ -2178,7 +2182,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-07-16T07:10:00";
+const LAST_UPDATED = "2026-07-16T18:10:20";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
