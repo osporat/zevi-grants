@@ -929,11 +929,11 @@ Write in a straightforward, rural-community-focused tone appropriate for an FCC 
     amount: "Varies (pool: $75,000)",
     amountNum: 10000,
     deadline: "2026-07-27",
-    status: "OPEN",
+    status: "CLOSED",
     appStatus: "Not started",
     isNew: false,
     url: "https://innisfilcommunityfoundation.ca/apply-for-a-grant/",
-    notes: "⚠️ DEADLINE TODAY — July 27, 2026 (closes end of day). Local Innisfil foundation — $75K total pool distributed among recipients. Registered charities eligible. Projects must benefit Innisfil residents. Strong fit: seniors programs, playground, or community events. ⚠️ Foundation's guidelines explicitly exclude religious activities/services serving only one spiritual tradition — frame the application around the community playground or seniors/youth programming, not synagogue/worship activities.",
+    notes: "CLOSED — deadline passed July 27, 2026. Next cycle not yet announced (historically an annual summer deadline, so expect ~July 2027); the application page stays live year-round, so check it in spring 2027. Local Innisfil foundation — $75K total pool distributed among recipients. Registered charities eligible. Projects must benefit Innisfil residents. Strong fit: seniors programs, playground, or community events. ⚠️ Foundation's guidelines explicitly exclude religious activities/services serving only one spiritual tradition — frame the application around the community playground or seniors/youth programming, not synagogue/worship activities.",
     chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for an Innisfil Community Foundation grant.
 
 GRANT: Innisfil Community Foundation Community Grant
@@ -2032,6 +2032,51 @@ Please write a complete CCAT Community Grants application including:
 7. Sustainability plan
 
 Write in a warm, mission-driven tone focused on serving vulnerable populations. Emphasize service to the broader community across faith backgrounds.`
+  },
+  {
+    id: 43,
+    funder: "Ontario Ministry of Citizenship and Multiculturalism",
+    program: "Anti-Hate Security and Prevention Grant — Faith-Based & Cultural Organizations Stream",
+    category: "Security",
+    amount: "$5,000, $7,500 or $10,000 (one-time)",
+    amountNum: 7500,
+    deadline: null,
+    status: "WATCH",
+    appStatus: "Not started",
+    isNew: true,
+    url: "https://www.ontario.ca/page/anti-hate-security-and-prevention-grant",
+    notes: "NEW TO DASHBOARD — this is the general faith-based/cultural stream, distinct from the Jewish Summer Camps streams already tracked (#8, #31). Synagogues are explicitly named as eligible applicants: 'religious and spiritual organizations and communities, for example: mosques, synagogues, temples, churches.' Ontario invested $12.75M in the 2025-26 round. 2025-26 applications are now CLOSED and no 2026-27 date is posted yet — hence WATCH. ⚠️ Awarded first come, first served, so the application must go in the day the next round opens. Prep now: Chabad must own, lease or rent an indoor Ontario facility used for regular gatherings of religious or cultural significance, and prior-round applicants are allowed to reapply. Have quotes, photos and the security plan ready in advance. Register in Transfer Payment Ontario (tpon.gov.on.ca) now if not already — that registration is the usual bottleneck.",
+    chatgptPrompt: `You are helping Chabad of Innisfil, a registered Canadian Jewish charity in Innisfil, Ontario (led by a rabbi), apply for the Ontario Anti-Hate Security and Prevention Grant (faith-based and cultural organizations stream).
+
+GRANT: Anti-Hate Security and Prevention Grant — Faith-Based & Cultural Organizations Stream
+FUNDER: Ontario Ministry of Citizenship and Multiculturalism
+AMOUNT: One-time grant of $5,000, $7,500 or $10,000
+DEADLINE: Next round not yet announced — awarded first come, first served once open
+PURPOSE: Helps faith-based and cultural organizations implement or enhance security measures so community spaces stay safe from hate-motivated incidents.
+
+ABOUT THE ORGANIZATION:
+- Chabad of Innisfil is a Jewish outreach organization serving the Innisfil/Barrie area
+- Registered Canadian charity
+- Owns/leases an indoor facility in Ontario used for regular gatherings of religious, spiritual and cultural significance
+- Hosts weekly services, Hebrew school, a licensed kindergarten/daycare, seniors programming and community events
+- Synagogues are explicitly listed as eligible applicants for this grant
+
+SECURITY MEASURES TO FUND (choose the tier that matches the ask):
+- Security camera system and monitoring
+- Access control, door reinforcement and shatter-resistant window film
+- Exterior and motion-activated lighting
+- Alarm/panic system and emergency communication
+- Security assessment and staff/volunteer training
+
+Please write a complete Anti-Hate Security and Prevention Grant application including:
+1. Organization description, charitable registration number, and confirmation the facility is used for regular gatherings of religious/cultural significance
+2. Description of the hate-motivated risk environment, referencing the documented rise in antisemitic incidents in Ontario
+3. Specific security measures requested, with a quote-backed cost for each, totalling the requested tier ($5,000 / $7,500 / $10,000)
+4. Any incidents, threats or vulnerabilities already experienced or identified at the site
+5. How the measures will protect congregants, children in the daycare/Hebrew school, and seniors
+6. Implementation timeline and who will manage the work
+
+Write in a clear, factual, evidence-based tone appropriate for a provincial government security grant. Be concrete about costs and specific about the vulnerability each item addresses — this is a short, first-come-first-served application, not a narrative proposal.`
   }
 ];
 // GRANT_DATA_END
@@ -2226,7 +2271,7 @@ function sortTable(col) {
 
 // ─── LAST UPDATED ─────────────────────────────────────────────────────────────
 // LAST_UPDATED_START
-const LAST_UPDATED = "2026-07-27T07:09:57";
+const LAST_UPDATED = "2026-07-28T07:14:10";
 // LAST_UPDATED_END
 
 function setLastUpdated() {
